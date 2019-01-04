@@ -7140,7 +7140,7 @@ th .lbl:only-child, td .lbl:only-child {
 }
 
 .dataTable th[class*=sorting_] {
-    color: #307ecc
+    /*color: #307ecc*/
 }
 
 .dataTable th.sorting_desc, .dataTable th.sorting_asc {
