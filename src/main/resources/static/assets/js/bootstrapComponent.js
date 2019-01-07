@@ -95,8 +95,7 @@ $.fn.bootstrapTable = function (options, param) {
     //将调用时候传过来的参数和default参数合并
     options = $.extend({}, $.fn.bootstrapTable.defaults, options || {});
     //加入序号列和选择框
-    debugger;
-    var lastTr =$(target.selector+" tr:last");
+    var lastTr = $(target.selector + " tr:last");
     var lastTrHtml = lastTr.html();
     lastTrHtml = '<th class="center"></th>' +
         '<th class="center">' +
@@ -169,6 +168,7 @@ $.fn.bootstrapTable = function (options, param) {
 };
 
 $.fn.bootstrapTable.methods = {
+    //获取被选中数据
     getChecked: function (jq) {
         var result = [];
         var table = jq.DataTable();
@@ -178,14 +178,141 @@ $.fn.bootstrapTable.methods = {
             }
         });
         return result;
-
-    }
+    },
+    //获取所有数据
+    //getAllData:
 };
 
 $.fn.bootstrapTable.defaults = {
     dom: 'rt<"row"<"col-sm-5"i><"col-sm-7"p>>',
     url: 'GET',
-    processing: true,
+    processing: false,
     iDisplayLength: 15,
     showCheckbox: true
 };
+
+//封装bootbox.js
+var bootstrapBootbox = {};
+//obj={title:"标题",message:"提示语",callback:function}
+bootstrapBootbox.confirm = function (obj) {
+    bootbox.confirm({
+        title: obj.title ? obj.title : "提示",
+        message: obj.message,
+        buttons: {
+            cancel: {
+                label: '<i class="icon-ban-circle align-top bigger-125"></i> 取消'
+            },
+            confirm: {
+                label: '<i class="icon-check align-top bigger-125"></i> 确认'
+            }
+        },
+        callback: function (result) {
+            obj.callback(result)
+        }
+    });
+
+};
+//obj={title:"标题",url:"/..",width:'400px',height:'100px'}
+bootstrapBootbox.dialog = function (obj) {
+    var dialog = bootbox.dialog({
+        title: obj.title,
+        className: "my-modal",
+        message: '<i class="icon-spinner icon-spin black bigger-125"></i>' + '  加载中',
+        width: obj.width,
+        height: obj.height
+        //show:false
+    });
+
+    dialog.init(function () {
+        dialog.find('.bootbox-body').html("<iframe width=100% height=100% frameborder='no'  noresize border=0 marginWidth=10 marginHeight=10 " +
+            "src='" + obj.url + "'></iframe>");
+    });
+    return dialog
+
+};
+
+//=============================bootbox=========================================
+$.bootstrapBox = {
+    confirm: {
+        init: function (obj) {
+            bootbox.confirm({
+                title: obj.title ? obj.title : "提示",
+                message: obj.message,
+                buttons: {
+                    confirm: {
+                        label: '<i class="icon-check align-top bigger-125"></i> 确认'
+                    },
+                    cancel: {
+                        label: '<i class="icon-ban-circle align-top bigger-125"></i> 取消'
+                    }
+                },
+                callback: function (result) {
+                    obj.callback(result)
+                }
+            });
+        }
+    },
+    dialog: {
+        init: function (obj) {
+            if (typeof obj == 'string') {
+                return $.fn.bootstrapDialog.methods[obj](this);
+            }
+            var dialog = bootbox.dialog({
+                title: obj.title,
+                className: "my-modal",
+                message: '<i class="icon-spinner icon-spin black bigger-125"></i>' + '  加载中',
+                width: obj.width,
+                height: obj.height
+                //show:false
+            });
+
+            dialog.init(function () {
+                dialog.find('.bootbox-body').html("<iframe width=100% height=100% frameborder='no'  noresize border=0 marginWidth=10 marginHeight=10 " +
+                    "src='" + obj.url + "'></iframe>");
+            });
+        },
+        close: function () {
+            $(".my-modal").modal("hide")
+        }
+    },
+    alert: {
+        init: function (obj) {
+            bootbox.alert({
+                message: obj.message,
+                size: 'small'
+            });
+        }
+    }
+};
+
+
+/*
+ $.bootstrapDialog = function (obj) {
+
+ if (typeof obj == 'string') {
+ return $.fn.bootstrapDialog.methods[obj](this);
+ }
+ var dialog = bootbox.dialog({
+ title: obj.title,
+ className: "my-modal",
+ message: '<i class="icon-spinner icon-spin black bigger-125"></i>' + '  加载中',
+ width: obj.width,
+ height: obj.height
+ //show:false
+ });
+
+ dialog.init(function () {
+ dialog.find('.bootbox-body').html("<iframe width=100% height=100% frameborder='no'  noresize border=0 marginWidth=10 marginHeight=10 " +
+ "src='" + obj.url + "'></iframe>");
+ });
+
+ $.bootstrapDialog.dialogObj = dialog;
+ };
+
+ $.bootstrapDialog.dialogObj = undefined;
+
+ $.bootstrapDialog.methods = {
+ close: function (jq) {
+ $.bootstrapDialog.dialogObj.modal("hide")
+ }
+ };*/
