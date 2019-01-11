@@ -1,0 +1,94 @@
+/*导航栏*/
+/*整个菜单栏*/
+.navbarDiv{
+    width: 100%;
+    height: 50px;
+}
+.myNavbar{
+    background: #007dd2;
+    border-width: 0px;
+}
+/*菜单文字*/
+.myNavbar .myMenu, .myNavbar .myMenu:hover, .myNavbar  .myMenu:focus{
+    font-size: 18px!important;
+}
+.myNavbar .myMenu{
+    color: white!important;
+}
+.myNavbar .myMenu:hover{
+    color: #035499!important;
+}
+.myNavbar  .navbar-nav .open .myMenu, .myNavbar  .navbar-nav .open .myMenu:hover{
+    border-width: 0px;
+    color: white!important;
+    background-color: #0f395e;
+}
+/*菜单栏左侧标题*/
+.myNavbar .navbar-logo{
+    float: left;
+    margin: 0px 30px 0px 0px;
+}
+.myNav{
+    float: left;
+}
+/*右上角登录相关按钮*/
+.myNavbar .ace-nav .right-nav{
+    height: 50px;
+}
+.myNavbar .ace-nav li a{
+    padding: 4px 8px;
+}
+/*菜单文字旁边小三角*/
+.myNavbar  .navbar-nav .dropdown a .caret, .myNavbar .navbar-nav .open a:focus .caret{
+    border-top-color: white!important;
+    border-bottom-color: white!important;
+    width: 10px;
+    height: 10px;
+}
+/*下拉框*/
+.myNav .dropdown-menu-1{
+    width: 800px;
+    height: 300px;
+}
+.myNav .dropdown-menu-2{
+    width: 600px;
+    height: 300px;
+}
+.myNav .dropdown-menu-3{
+    width: 400px;
+    height: 200px;
+}
+.myNav .dropdown-menu{
+    /*background: #fefefe;*/
+    border-width: 0px;
+    border-radius: 0px;
+    /*将下拉框改成横屏100%显示*/
+    width: 100%;
+    position: fixed;
+    top: 50px;
+    background: #0f395e;
+}
+/*下拉框里面的标题文字*/
+.myNav .dropdown-header{
+    font-size: 18px;
+    padding: 5px 0px;
+    /*color: #0367e7;*/
+    /*将下拉框改成横屏100%显示*/
+    color: white;
+}
+/*下拉框里面的链接文字*/
+.myNav .menuLink{
+    list-style: none;
+    padding: 5px 0px;
+}
+.myNav .menuLink a{
+    font-size: 18px;
+    /*color: #5a6772;*/
+    /*将下拉框改成横屏100%显示*/
+    color: #a7aaae!important;
+}
+.myNav .menuLink a:hover{
+    color: white!important;
+    text-decoration: none;
+    background: #0f395e;
+}

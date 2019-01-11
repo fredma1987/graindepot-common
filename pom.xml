@@ -33,11 +33,11 @@
 	</dependencyManagement>
 
 	<dependencies>
-		<dependency>
+		<!--<dependency>
 			<groupId>graindepot-common</groupId>
 			<artifactId>graindepot-common</artifactId>
 			<version>1.0.0</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
