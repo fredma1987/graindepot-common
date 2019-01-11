@@ -6,18 +6,18 @@ import java.io.Serializable;
  * Created by Administrator on 2018-12-5.
  */
 public class UserBean implements Serializable {
-    private Integer id;
+    private Integer userid;
 
     private String username;
 
     private String password;
 
-    public Integer getId() {
-        return id;
+    public Integer getUserid() {
+        return userid;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setUserid(Integer userid) {
+        this.userid = userid;
     }
 
     public String getUsername() {
