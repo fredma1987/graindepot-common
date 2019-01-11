@@ -3,9 +3,7 @@ package com.zhoubi.graindepot.base;
 
 import java.io.Serializable;
 
-/**
- * Created by jackwang on 14-8-1.
- */
+
 public class JsonResult implements Serializable {
     private static final long serialVersionUID = -4699713095477151086L;
 
