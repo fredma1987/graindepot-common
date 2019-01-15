@@ -50,7 +50,7 @@ $.fn.bootstrapSelect = function (options, param) {
     }
     //4.判断用户传过来的参数列表里面是否包含数据data数据集，如果包含，不用发ajax从后台取，否则否送ajax从后台取数据
     if (options.data) {
-        init(target, options.data);
+        init(target, options.data,options);
     }else{
         if (!options.url) return;
         if ("post" == options.type.toLowerCase()) {
@@ -74,7 +74,7 @@ $.fn.bootstrapSelect = function (options, param) {
                 option.text(item[options.textField]);
                 target.append(option);
             });
-
+            target.selectpicker('val',options.defaultValue);
             target.selectpicker('refresh');
         }
         options.onLoadSuccess(target,data);
@@ -100,6 +100,7 @@ $.fn.bootstrapSelect.defaults = {
     search: true,
     all: true,
     placeholder: '请选择',
+    defaultValue:'',//默认值
     onLoadSuccess: function (item,data) {
         
     }

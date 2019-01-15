@@ -35,6 +35,7 @@ public class PagerModel<T> {
 
     public PagerModel addOrder(String... o) {
         Collections.addAll(order, o);
+        where.put("orders",order);
         return this;
     }
 

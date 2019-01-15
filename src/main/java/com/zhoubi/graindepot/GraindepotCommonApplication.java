@@ -8,7 +8,6 @@ public class GraindepotCommonApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GraindepotCommonApplication.class, args);
-
 	}
 
 }

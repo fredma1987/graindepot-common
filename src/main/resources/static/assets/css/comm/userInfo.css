@@ -1,0 +1,81 @@
+/*用户信息页面*/
+/*.infoDiv{
+	width: 1500px;
+	height: 600px;
+	min-width: 1400px;
+	/!*height: calc(100% - 50px);*!/
+	/!*background: #f2f3f4;*!/
+}*/
+.userInfoDiv{
+	padding-top: 25px;
+}
+.userInfoDiv table{
+	border: 1px solid white;
+	box-shadow: 0 0 10px #3c6d97;
+}
+.userInfoDiv table td{
+	font-size: 18px;
+}
+.userInfoDiv table .infoTitle{
+	background: #e3e9ee;
+	border: 1px solid white;
+	color: #033e7d;
+	text-align: right;
+}
+.userInfoDiv table .infoShow{
+	background: #f9fafa;
+	border: 1px dotted #1c61ad;
+	color: #3a5674;
+}
+/*左侧信息*/
+.leftUserDiv{
+	float: left;
+	width: 300px;
+	padding-left: 20px;
+}
+.leftUserDiv table td{
+	padding: 8px 0px;
+}
+.leftUserDiv .infoTitle{
+	width: 100px;
+	padding-right: 10px;
+}
+.leftUserDiv .infoShow{
+	width: 200px;
+	padding-left: 10px;
+}
+.userHeadPic{
+	width: 215px;
+	height: 215px;
+	text-align: center;
+	line-height: 215px;
+	background: whitesmoke;
+	border: 1px solid gainsboro;
+	box-shadow: 0 0 5px #7f8c97;
+	margin: 0px 0px 30px 30px;
+}
+.userHeadPic img{
+	width: 200px;
+	height: 200px;
+}
+/*右侧信息*/
+.rightUserDiv{
+	float: left;
+	width: 1100px;
+	padding-left: 25px;
+}
+.rightUserDiv table td{
+	padding: 8px 0px;
+}
+.rightUserDiv .userTable{
+	float: left;
+	margin-right: 30px;
+}
+.rightUserDiv .infoTitle{
+	width: 130px;
+	padding-right: 10px;
+}
+.rightUserDiv .infoShow{
+	width: 270px;
+	padding-left: 20px;
+}
