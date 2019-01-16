@@ -1,0 +1,52 @@
+.food_btn{
+    position: absolute;
+    width: 84px;
+    height: 140px;
+    margin-top:-70px;
+    top:50%;
+    cursor: pointer;
+    z-index: 6;
+}
+.food_btn_left{
+    display: none;
+    left: 0;
+    background: url(/static/resource/images/teSeImg/food_left_btn.png) center center no-repeat;
+}
+.food_btn_right{
+    right: 0;
+    background: url(/static/resource/images/teSeImg/food_right_btn.png) center center no-repeat;
+}
+.food_btn_left_hover{
+    background: rgba(0,0,0,0.2) url(/static/resource/images/teSeImg/food_left_btn_1.png) center center no-repeat;
+}
+.food_btn_right_hover{
+
+    background: rgba(0,0,0,0.2) url(/static/resource/images/teSeImg/food_right_btn_1.png) center center no-repeat;
+}
+.food_content{
+    width: 50%;
+    height:100%;
+    float: left;
+
+}
+.food_middle_main{
+    width: 200%;
+    height:100%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.food_middle{
+    width: 100%;
+    padding:20px 0;
+    height:556px;
+    overflow: hidden;
+    position: relative;
+}
+.characteristic_main{
+    width:100%;
+    height:576px;
+    z-index:1000;
+    margin:0 auto;
+    margin-top:-20px;
+}
