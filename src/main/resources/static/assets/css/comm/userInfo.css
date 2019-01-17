@@ -79,3 +79,48 @@
 	width: 270px;
 	padding-left: 20px;
 }
+
+
+.infoDiv{
+	padding-top: 25px;
+}
+.infoDiv table{
+	border: 1px solid white;
+	box-shadow: 0 0 10px #3c6d97;
+}
+.infoDiv table td{
+	font-size: 18px;
+}
+.infoDiv table .infoTitle{
+	background: #e3e9ee;
+	border: 1px solid white;
+	color: #033e7d;
+	text-align: right;
+}
+.infoDiv table .infoShow{
+	background: #f9fafa;
+	border: 1px dotted #1c61ad;
+	color: #3a5674;
+}
+
+/*右侧信息*/
+.rightDiv{
+	float: left;
+	padding-left: 35px;
+}
+
+.rightDiv table td{
+	padding: 8px 0px;
+}
+.rightDiv .userTable{
+	float: left;
+	margin-right: 30px;
+}
+.rightDiv .infoTitle{
+	width: 130px;
+	padding-right: 10px;
+}
+.rightDiv .infoShow{
+	width: 270px;
+	padding-left: 20px;
+}
