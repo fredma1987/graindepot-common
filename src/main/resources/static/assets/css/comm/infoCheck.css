@@ -1,0 +1,54 @@
+/* 信息查看页面 */
+.infoCheckDiv{
+	width: 100%;
+	height: 100%;
+}
+.infoCheckBack{
+	width: 100vw;
+	height: 100vh;
+	min-width: 1000px;
+	color: white;
+	font-size: 16px;
+	background: #8b8b8b;
+}
+.infoCheckBack table{
+	width: 100%;
+	table-layout: fixed;
+	border: 0;
+	border-collapse: separate;
+	border-spacing: 0 1px;/* 水平 垂直 */
+}
+.infoCheck-three td, .infoCheck-two td{
+	padding: 10px 0px;
+	border: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.infoCheck-one td{
+	padding: 20px 0;
+	border: 0;
+}
+.infoCheckBack table tr .infoCheck-name{
+	width: 13%;
+	text-align: right;
+	padding-right: 15px;
+
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#898989+1,474747+100 */
+	background: rgb(137,137,137); /* Old browsers */
+	background: -moz-linear-gradient(left,  rgba(137,137,137,1) 1%, rgba(71,71,71,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  rgba(137,137,137,1) 1%,rgba(71,71,71,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  rgba(137,137,137,1) 1%,rgba(71,71,71,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#898989', endColorstr='#474747',GradientType=1 ); /* IE6-9 */
+
+}
+.infoCheckBack table tr .infoCheck-content{
+	padding-left: 15px;
+
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#545454+0,a0a0a0+100&1+0,0+100 */
+	background: -moz-linear-gradient(left,  rgba(84,84,84,1) 0%, rgba(160,160,160,0) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  rgba(84,84,84,1) 0%,rgba(160,160,160,0) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  rgba(84,84,84,1) 0%,rgba(160,160,160,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#545454', endColorstr='#00a0a0a0',GradientType=1 ); /* IE6-9 */
+
+}

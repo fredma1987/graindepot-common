@@ -1,6 +1,5 @@
 @charset "utf-8";
 body{
-		/*background-color:#cecece;*/
 	font-family:arial, helvetica, sans-serif;
 }
 /* a{
@@ -27,14 +26,12 @@ body{
 }
 .leftNavbar{
 	z-index:1031;
-	/*height: 100%;*/
 }
 .leftNavbar .leftNavbar-body{
-	z-index:1032;
+	z-index:1031;
 	position:absolute;
 	top: 0px;
 	left: 0px;
-	/*height: 100%;*/
 }
 .leftNavbar hr{
 	margin: 8px 0px;
@@ -42,19 +39,18 @@ body{
 }
 /* 主按钮 */
 .leftNavbar .leftNavbar-body .navBtn{
-	background: #36383c url(/assets/css/images/menu.png) no-repeat center center;
-	background-size: 25px  20px;
+	background: #313639 url(/assets/css/images/menu.png) no-repeat center center;
 	width:45px;
 	height:45px;
 	line-height:45px;
 	display:block;
-	border-right: 1px solid gray;
+	border-right: 1px solid #e3e3e3;
 }
 /* 菜单一级+二级 */
 .leftNavbar .menuBtn-1, .leftNavbar .menuBtn-2{
-	z-index:1032;
+	z-index:1031;
 	background-color:#333;
-	width:0px;
+	width:200px;
 	padding: 20px 0px;
 	display:none;
 	-webkit-transition:width 1s ease-out;
@@ -67,6 +63,7 @@ body{
 	position:absolute;
 	top:45px;
 	left:0px;
+	width: 200px;
 	height:calc(100% - 50px);
 }
 .leftNavbar .menuBtn-2{
@@ -74,19 +71,20 @@ body{
 	position:absolute;
 	top:0px;
 	left:199px;
+	width: 200px;
 	height:100%;
 }
-.leftNavbar .menuBtn-3{
+.leftNavbar .menu-div-3{
 	background-color:#303538;
 	min-height:500px;
-	width:0px;
+	width:980px;
 	height:100%;
-	padding: 20px 20px;
 	display:none;
 	position:absolute;
 	top:0px;
 	left:199px;
 	float:left;
+	overflow: hidden;
 	/* box-shadow:4px 4px 5px -1px #999999;
 	-webkit-box-shadow:4px 4px 5px -1px #999999;
 	-moz-box-shadow:4px 4px 5px -1px #999999; */
@@ -95,6 +93,16 @@ body{
 	-ms-transition:width 2s ease-out;
 	-o-transition:width 2s ease-out;
 	transition:width 2s ease-out;
+}
+/* 给三级菜单框添加父类menu-div-3，设置父类宽比菜单框小一点，隐藏滚动条 */
+.leftNavbar .menuBtn-3{
+	padding: 20px 20px;
+	width: 1000px;
+	height: 100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	overflow-y: scroll;
 }
 .leftNavbar .menuBtn-4{
 	margin-bottom: 20px;
@@ -110,10 +118,10 @@ body{
 	padding-right: 40px;
 }
 .leftNavbar .menuBtn-4 .menu-show-4{
-	padding: 5px 0px;
+	padding: 3px 0px;
 	font-size: 15px;
 }
-/* 一级菜单文字+二级菜单文字 */
+/* 一级菜单标题+二级菜单标题 */
 .leftNavbar .menu-show-1 .nav-menu-1 a, .leftNavbar .menu-show-2 .nav-menu-2 a{
 	font-family:微软雅黑, 黑体;
 	color:#f8f8f8;
@@ -125,26 +133,35 @@ body{
 	-o-transition:color 0.1s ease-out;
 	transition:color 0.1s ease-out; */
 }
-/* 下拉框-三级菜单文字*/
+/* 下拉框-三级菜单标题*/
 .leftNavbar .menuBtn-3 .nav-menu-3 a{
 	font-size: 17px;
 	font-weight: bold;
 	color: #f8f8f8;
 }
+/* 四级菜单标题*/
+.leftNavbar .menuBtn-3 .nav-menu-4 a{
+	font-size: 13px;
+	color: #a2a2a2;
+}
+.leftNavbar .menuBtn-3 .nav-menu-4{
+	margin: 8px 0px;
+}
 /* 下拉框-四级菜单文字*/
 .leftNavbar .menuBtn-4 .menu-show-4 a{
-	color: #d7d4d4;
+	color: white;
 }
 /* 鼠标经过按钮时候显示菜单导航 */
+.leftNavbar .leftNavbar-body:hover{
+	height: 100%;
+}
 .leftNavbar .leftNavbar-body:hover .menuBtn-1,
 .leftNavbar .menu-show-1:hover .menuBtn-2
 {
 	display:block;
-	width: 200px;
 }
-.leftNavbar .menu-show-2:hover .menuBtn-3{
+.leftNavbar .menu-show-2:hover .menu-div-3{
 	display:block;
-	width: 1000px;
 }
 /* 二级菜单不显示 */
 .leftNavbar .menu-show-1:hover .menu-noshow{
@@ -155,9 +172,8 @@ body{
 	display: none;
 }
 /* 二级菜单不显示时三级菜单框 */
-.leftNavbar .menu-show-1:hover .menu-noshow .menuBtn-3{
+.leftNavbar .menu-show-1:hover .menu-noshow .menu-div-3{
 	display: block;
-	width: 1000px;
 	left: 0px;
 }
 /* 鼠标经过时颜色变化 */
@@ -167,7 +183,7 @@ body{
 .leftNavbar .menu-show-1:hover .nav-menu-1, .leftNavbar .menu-show-2:hover .nav-menu-2{
 	background-color:#1f1f1f;
 }
-.leftNavbar .menu-show-1:hover .nav-menu-1 a, 
+.leftNavbar .menu-show-1:hover .nav-menu-1 a,
 .leftNavbar .menu-show-2:hover .nav-menu-2 a,
 .leftNavbar .menu-show-3:hover .menuBtn-4 a:hover
 {
@@ -176,8 +192,8 @@ body{
 .leftNavbar a{
 	color: white;
 	text-decoration: none;
+	cursor: default;
 }
-
-.leftNavbar .leftNavbar-body:hover{
-	height: 100%;
+.leftNavbar .menuBtn-4 a{
+	cursor: pointer;
 }

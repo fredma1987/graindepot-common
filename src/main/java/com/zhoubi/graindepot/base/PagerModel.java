@@ -1,10 +1,6 @@
 package com.zhoubi.graindepot.base;
 
 import java.util.*;
-
-/**
- * 分页模型，也是所有实体类的基类
- */
 public class PagerModel<T> {
 
     private List<String> order = new LinkedList();

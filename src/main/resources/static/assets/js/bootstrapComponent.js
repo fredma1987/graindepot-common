@@ -73,7 +73,7 @@ $.fn.bootstrapSelect = function (options, param) {
                 option.text(item[options.textField]);
                 target.append(option);
             });
-            if (options.defaultValue) {
+            if (options.defaultValue != null) {
                 target.selectpicker('val', options.defaultValue);
             }
             target.selectpicker('refresh');
@@ -162,32 +162,34 @@ $.fn.bootstrapTable = function (options, param) {
     } finally {
         //加载完成后绑定checkbox
         this.on('init.dt', function () {
-            /* $(target.selector + ' th input:checkbox').on('click', function () {
-             debugger
-             var that = this;
-             $(this).closest('table').find('input:checkbox')
-             .each(function () {
-             this.checked = that.checked;
-             $(this).closest('input:checkbox').toggleClass('checked');
-             });
-
-             });*/
-            $(target.selector + '_wrapper th input:checkbox').on('click', function () {
+            $(target.selector + ' th input:checkbox').on('click', function () {
+                debugger
                 var that = this;
-                $(this).closest('.dataTables_scrollHead').next().find('input:checkbox')
+                $(this).closest('table').find('input:checkbox')
                     .each(function () {
                         this.checked = that.checked;
                         $(this).closest('input:checkbox').toggleClass('checked');
                     });
 
             });
-            var rowWidth = $("#" + this.id + "_wrapper .dataTables_scrollHeadInner").width();
+            /*$(target.selector + '_wrapper th input:checkbox').on('click', function () {
+             var that = this;
+             $(this).closest('.dataTables_scrollHead').next().find('input:checkbox')
+             .each(function () {
+             this.checked = that.checked;
+             $(this).closest('input:checkbox').toggleClass('checked');
+             });
+
+             });*/
+            // var rowWidth = $("#" + this.id + "_wrapper .dataTables_scrollHeadInner").width();
+            var rowWidth = $("#" + this.id).width();
             $("#" + this.id + "_wrapper .row").css("width", (rowWidth - 1) + "px")
 
         });
 
         this.on('page.dt', function () {
-            $(target.selector + '_wrapper th input:checkbox').removeAttr('checked');
+            /*$(target.selector + '_wrapper th input:checkbox').removeAttr('checked');*/
+            $(target.selector + ' th input:checkbox').removeAttr('checked');
         });
 
     }
@@ -222,8 +224,8 @@ $.fn.bootstrapTable.defaults = {
     showCheckbox: true,
     serverSide: true,//开启服务器模式
     ordering: false,// 禁止排序
-    scrollX: true,
-    scrollY: true,
+    //scrollX: true,
+    // scrollY: true,
     language: {
         url: '/assets/json/Chinese.json'
     }
@@ -253,9 +255,6 @@ $.bootstrapBox = {
     },
     dialog: {
         init: function (obj) {
-            if (typeof obj == 'string') {
-                return $.fn.bootstrapDialog.methods[obj](this);
-            }
             var dialog = bootbox.dialog({
                 title: obj.title,
                 className: "my-modal",
@@ -269,9 +268,11 @@ $.bootstrapBox = {
                 dialog.find('.bootbox-body').html("<iframe width=100% height=100% frameborder='no'  noresize border=0 marginWidth=10 marginHeight=10 " +
                     "src='" + obj.url + "'></iframe>");
             });
+            return dialog;
         },
         close: function () {
-            $(".my-modal").modal("hide")
+            $(".my-modal:last").modal("hide")
+
         }
     },
     alert: {
@@ -312,10 +313,9 @@ $.fn.bootstrapYear.defaults = {
     todayBtn: 1,
     autoclose: 1,
     todayHighlight: 1,
-    startView: 3, //这里就设置了默认视图为年视图
-    minView: 3, //设置最小视图为年视图
-    forceParse: 0,
-    showMeridian: 1
+    startView: 4, //这里就设置了默认视图为年视图
+    minView: 4, //设置最小视图为年视图
+    forceParse: 0
 };
 
 

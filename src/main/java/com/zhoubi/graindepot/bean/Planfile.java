@@ -8,7 +8,7 @@ public class Planfile implements Serializable {
 	private int companyid;//企业ID
 	private int graindepotid;//粮库ID
 	private int planTypeID;//计划类型主键(1：轮换计划，2：轮出计划，3：轮入计划)
-	private int planYear;//计划年度
+	private String planYear;//计划年度
 	private String planNo;//计划文号
 	private String dispatchunit;//下达单位
 	private Date dispatchdate;//下达日期
@@ -110,10 +110,10 @@ public class Planfile implements Serializable {
 	public void setPlanTypeID(int planTypeID){
 		this.planTypeID=planTypeID;
 	}
-	public int getPlanYear(){
+	public String getPlanYear(){
 		return planYear;
 	}
-	public void setPlanYear(int planYear){
+	public void setPlanYear(String planYear){
 		this.planYear=planYear;
 	}
 	public String getPlanNo(){
