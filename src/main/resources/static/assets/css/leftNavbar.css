@@ -2,23 +2,6 @@
 body{
 	font-family:arial, helvetica, sans-serif;
 }
-/* a{
-	border:0;
-	color:#666666;
-	text-decoration:none;
-	-webkit-transition-property:color;
-	-moz-transition-property:color;
-	-o-transition-property:color;
-	transition-property:color;
-	-webkit-transition-duration:.2s;
-	-webkit-transition-timing-function:ease-in;
-	-moz-transition-duration:.2s;
-	-moz-transition-timing-function:ease-in;
-	-o-transition-duration:.2s;
-	-o-transition-timing-function:ease-in;
-	transition-duration:.2s;
-	transition-timing-function:ease-in;
-}*/
 .leftNavbar *{
 	margin:0;
 	padding:0;
@@ -39,10 +22,11 @@ body{
 }
 /* 主按钮 */
 .leftNavbar .leftNavbar-body .navBtn{
-	background: #313639 url(/assets/css/images/menu.png) no-repeat center center;
+	background: #313639;
 	width:45px;
 	height:45px;
-	line-height:45px;
+	text-align: center;
+	padding-top: 7px;
 	display:block;
 	border-right: 1px solid #e3e3e3;
 }
@@ -52,12 +36,12 @@ body{
 	background-color:#333;
 	width:200px;
 	padding: 20px 0px;
-	display:none;
-	-webkit-transition:width 1s ease-out;
-	-moz-transition:width 1s ease-ou;
-	-ms-transition:width 1s ease-out;
-	-o-transition:width 1s ease-out;
-	transition:width 1s ease-out;
+	visibility: hidden;
+	/* 	-webkit-transition:width 0.1s ease-out;
+        -moz-transition:width 0.1s ease-ou;
+        -ms-transition:width 0.1s ease-out;
+        -o-transition:width 0.1s ease-out;
+        transition:width 0.1s ease-out; */
 }
 .leftNavbar .menuBtn-1{
 	position:absolute;
@@ -75,47 +59,45 @@ body{
 	height:100%;
 }
 .leftNavbar .menu-div-3{
+	border-left: 1px solid gray;
 	background-color:#303538;
 	min-height:500px;
-	width:980px;
+	width:1000px;
 	height:100%;
-	display:none;
+	padding: 20px;
+	visibility: hidden;
 	position:absolute;
 	top:0px;
 	left:199px;
 	float:left;
 	overflow: hidden;
-	/* box-shadow:4px 4px 5px -1px #999999;
-	-webkit-box-shadow:4px 4px 5px -1px #999999;
-	-moz-box-shadow:4px 4px 5px -1px #999999; */
-	-webkit-transition:width 2s ease-out;
-	-moz-transition:width 2s ease-out;
-	-ms-transition:width 2s ease-out;
-	-o-transition:width 2s ease-out;
-	transition:width 2s ease-out;
+}
+.leftNavbar .menu-container-3{
+	width:1000px;
+	height:100%;
+	overflow-y: scroll;
 }
 /* 给三级菜单框添加父类menu-div-3，设置父类宽比菜单框小一点，隐藏滚动条 */
 .leftNavbar .menuBtn-3{
-	padding: 20px 20px;
-	width: 1000px;
-	height: 100%;
+	width: 960px;
+	max-width: 1000px;
 	position:absolute;
 	top:0px;
 	left:0px;
-	overflow-y: scroll;
 }
-.leftNavbar .menuBtn-4{
+.leftNavbar .menu-show-3{
+	float: left;
+	width: 200px;
 	margin-bottom: 20px;
 }
 .leftNavbar .menu-show-1 .nav-menu-1, .leftNavbar .menu-show-2 .nav-menu-2{
-	background-image: url(/assets/css/images/arrow.png);
-	height:40px;
-	padding: 0px 20px;
-	background-repeat:no-repeat;
-	background-position:right center;
+	padding-left: 20px;
+	width: 200px;
 }
-.leftNavbar .menuBtn-3 .menu-show-3{
-	padding-right: 40px;
+/* 箭头 */
+.leftNavbar .icon-angle-right{
+	float: right;
+	margin: 5px 5px 0px 0px;
 }
 .leftNavbar .menuBtn-4 .menu-show-4{
 	padding: 3px 0px;
@@ -127,11 +109,6 @@ body{
 	color:#f8f8f8;
 	font-size: 17px;
 	line-height:40px;
-	/* -webkit-transition:color 0.1s ease-out;
-	-moz-transition:color 0.1s ease-out;
-	-ms-transition:color 0.1s ease-out;
-	-o-transition:color 0.1s ease-out;
-	transition:color 0.1s ease-out; */
 }
 /* 下拉框-三级菜单标题*/
 .leftNavbar .menuBtn-3 .nav-menu-3 a{
@@ -156,24 +133,18 @@ body{
 	height: 100%;
 }
 .leftNavbar .leftNavbar-body:hover .menuBtn-1,
-.leftNavbar .menu-show-1:hover .menuBtn-2
+.leftNavbar .menu-show-1:hover .menuBtn-2,
+.leftNavbar .menu-show-2:hover .menu-div-3
 {
-	display:block;
-}
-.leftNavbar .menu-show-2:hover .menu-div-3{
-	display:block;
+	visibility: visible;
 }
 /* 二级菜单不显示 */
 .leftNavbar .menu-show-1:hover .menu-noshow{
-	width: 0px;
-}
-/* 二级菜单标题文字不显示 */
-.leftNavbar .menu-show-1:hover .menu-noshow .nav-menu-2{
-	display: none;
+	visibility: hidden;
 }
 /* 二级菜单不显示时三级菜单框 */
 .leftNavbar .menu-show-1:hover .menu-noshow .menu-div-3{
-	display: block;
+	visibility: visible;
 	left: 0px;
 }
 /* 鼠标经过时颜色变化 */
@@ -196,4 +167,13 @@ body{
 }
 .leftNavbar .menuBtn-4 a{
 	cursor: pointer;
+}
+/* 有滚动条时显示箭头提醒 */
+.leftNavbar .menu-div-3 .arrow-more{
+	position: absolute;
+	left: 460px;
+	bottom: 0px;
+	/*color: #00c1de;*/
+	color: white;
+	/*visibility: hidden;*/
 }

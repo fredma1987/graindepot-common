@@ -6,6 +6,8 @@
     <title>左侧菜单导航</title>
     <link rel="stylesheet" type="text/css" th:href="@{/assets/css/ace.min.css}"/>
     <link rel="stylesheet" th:href="@{/assets/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/font-awesome.min.css}"/>
+    <script th:src="@{/assets/js/masonry.pkgd.min.js}"></script>
     <script th:src="@{/assets/js/jquery-1.11.1.js}"></script>
     <script th:src="@{/assets/js/bootstrap.min.js}"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/assets/css/leftNavbar.css}"/>
@@ -15,149 +17,200 @@
 <!-- 左侧菜单导航 -->
 <div class="leftNavbar" th:fragment="leftNavbar">
     <div class="leftNavbar-body">
-        <a class="navBtn"><!--<i class="icon-reorder bigger-200 center"></i>--></a>
+        <a class="navBtn"><i class="icon-reorder bigger-220"></i></a>
         <ul class="menuBtn-1">
             <!-- 如果没有二级菜单之间显示下拉框，在menuBtn-2类里加一个类menu-noshow -->
             <!-- 一级菜单 -->
             <li class="menu-show-1">
-                <div class="nav-menu-1"><a href="#">综合业务</a></div>
+                <div class="nav-menu-1"><a href="#">综合业务<i class="icon-angle-right bigger-160"></i></a></div>
                 <!-- 二级菜单 -->
                 <ul class="menuBtn-2">
                     <li class="menu-show-2">
-                        <div class="nav-menu-2"><a href="#">综合业务管理系统</a></div>
+                        <div class="nav-menu-2"><a href="#">综合业务管理系统<i class="icon-angle-right bigger-160"></i></a>
+                        </div>
+
+                        <!-- 给三级菜单框添加父类menu-div-3，设置父类宽比菜单框小一点，隐藏滚动条 -->
                         <div class="menu-div-3">
-                            <ul class="menuBtn-3">
-                                <li class="menu-show-3 col-sm-3">
-                                    <div class="nav-menu-3"><a href="#">经营管理</a></div>
-                                    <hr>
-                                  <!--  <div class="nav-menu-4"><a href="#">计划管理</a></div>-->
-                                    <ul class="menuBtn-4">
-                                        <!--计划管理-->
-                                        <div class="nav-menu-4"><a href="#">计划管理</a></div>
-                                        <li class="menu-show-4"><a href="/page/planfile">计划文件</a></li>
-                                        <li class="menu-show-4"><a href="/page/planfileDetail">计划文件详情</a></li>
-                                        <li class="menu-show-4"><a href="/page/planfileInplan">入库计划</a></li>
-                                        <li class="menu-show-4"><a href="/page/planfileOutplan">出库计划</a></li>
-                                        <!--合同管理-->
-                                        <div class="nav-menu-4"><a href="#">合同管理</a></div>
-                                        <li class="menu-show-4"><a href="/page/contracttype">合同类型</a></li>
-                                        <li class="menu-show-4"><a href="/page/contract">合同详情</a></li>
-                                        <!--客户管理-->
-                                        <div class="nav-menu-4"><a href="#">客户管理</a></div>
-                                        <li class="menu-show-4"><a href="/page/trader">往来单位</a></li>
-                                        <!--基础数据-->
-                                        <div class="nav-menu-4"><a href="#">基础数据</a></div>
-                                        <li class="menu-show-4"><a href="/page/grainattr">粮食性质</a></li>
-                                        <li class="menu-show-4"><a href="/page/grain">粮食品种</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-show-3 col-sm-3">
-                                    <div class="nav-menu-3"><a href="#">基础数据</a></div>
-                                    <hr>
-                                    <ul class="menuBtn-4">
-                                        <li class="menu-show-4"><a href="">仓库管理</a></li>
-                                        <li class="menu-show-4"><a href="">仓库管理</a></li>
-                                        <li class="menu-show-4"><a href="">仓库管理</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-show-3 col-sm-3">
-                                    <div class="nav-menu-3"><a href="#">存储管理</a></div>
-                                    <hr>
-                                    <ul class="menuBtn-4">
-                                        <li class="menu-show-4"><a href="">仓库管理</a></li>
-                                        <li class="menu-show-4"><a href="">仓库管理</a></li>
-                                        <li class="menu-show-4"><a href="">仓库管理</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-show-3 col-sm-3">
-                                    <div class="nav-menu-3"><a href="#">质量管理</a></div>
-                                    <hr>
-                                    <ul class="menuBtn-4">
-                                        <li class="menu-show-4"><a href="">粮食质量检查</a></li>
-                                        <li class="menu-show-4"><a href="">粮食质量检查</a></li>
-                                        <li class="menu-show-4"><a href="">粮食质量检查</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-show-3 col-sm-3">
-                                    <div class="nav-menu-3"><a href="#">药剂管理1</a></div>
-                                    <hr>
-                                    <ul class="menuBtn-4">
-                                        <li class="menu-show-4"><a href="">药剂领用申请</a></li>
-                                        <li class="menu-show-4"><a href="">药剂领用申请</a></li>
-                                        <li class="menu-show-4"><a href="">药剂领用申请</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-show-3 col-sm-3">
-                                    <div class="nav-menu-3"><a href="#">报表查询</a></div>
-                                    <hr>
-                                    <ul class="menuBtn-4">
-                                        <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
-                                        <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
-                                        <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
-                                        <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
-                                        <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
-                                        <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-show-3 col-sm-3">
-                                    <div class="nav-menu-3"><a href="#">药剂管理2</a></div>
-                                    <hr>
-                                    <ul class="menuBtn-4">
-                                        <li class="menu-show-4"><a href="">药剂领用申请</a></li>
-                                        <li class="menu-show-4"><a href="">药剂领用申请</a></li>
-                                        <li class="menu-show-4"><a href="">药剂领用申请</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-show-3 col-sm-3">
-                                    <div class="nav-menu-3"><a href="#">药剂管理3</a></div>
-                                    <hr>
-                                    <ul class="menuBtn-4">
-                                        <li class="menu-show-4"><a href="">药剂领用申请</a></li>
-                                        <li class="menu-show-4"><a href="">药剂领用申请</a></li>
-                                        <li class="menu-show-4"><a href="">药剂领用申请</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-show-3 col-sm-3">
-                                    <div class="nav-menu-3"><a href="#">药剂管理4</a></div>
-                                    <hr>
-                                    <ul class="menuBtn-4">
-                                        <li class="menu-show-4"><a href="">药剂领用申请</a></li>
-                                        <li class="menu-show-4"><a href="">药剂领用申请</a></li>
-                                        <li class="menu-show-4"><a href="">药剂领用申请</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <!-- 如果有滚动显示向下箭头 -->
+                            <i class="arrow-more icon-double-angle-down bigger-150"></i>
+
+                            <div class="menu-container-3">
+                                <ul class="menuBtn-3">
+
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">经营管理</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <div class="nav-menu-4"><a href="#">计划管理</a></div>
+                                            <li class="menu-show-4"><a href="/page/planfile">计划文件</a></li>
+                                            <li class="menu-show-4"><a href="/page/planfileDetail">计划文件详情</a></li>
+                                            <li class="menu-show-4"><a href="/page/planfileInplan">入库计划</a></li>
+                                            <li class="menu-show-4"><a href="/page/planfileOutplan">出库计划</a></li>
+
+                                            <div class="nav-menu-4"><a href="#">合同管理</a></div>
+                                            <li class="menu-show-4"><a href="/page/contracttype">合同类型</a></li>
+                                            <li class="menu-show-4"><a href="/page/contract">合同详情</a></li>
+
+                                            <div class="nav-menu-4"><a href="#">客户管理</a></div>
+                                            <li class="menu-show-4"><a href="/page/trader">往来单位</a></li>
+
+                                            <div class="nav-menu-4"><a href="#">基础数据</a></div>
+                                            <li class="menu-show-4"><a href="/page/grainattr">粮食性质</a></li>
+                                            <li class="menu-show-4"><a href="/page/grain">粮食品种</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">仓库管理</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">仓库管理仓库管理仓库管理</a></li>
+                                            <li class="menu-show-4"><a href="">仓库管理</a></li>
+                                            <li class="menu-show-4"><a href="">仓库管理</a></li>
+                                            <li class="menu-show-4"><a href="">仓库管理</a></li>
+                                            <li class="menu-show-4"><a href="">仓库管理</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">仓库管理</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">仓库管理</a></li>
+                                            <li class="menu-show-4"><a href="">仓库管理</a></li>
+                                            <li class="menu-show-4"><a href="">仓库管理</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">质量管理</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">粮食质量检查粮食质量检查</a></li>
+                                            <li class="menu-show-4"><a href="">粮食质量检查粮食质量检查</a></li>
+                                            <li class="menu-show-4"><a href="">粮食质量检查粮食质量检查</a></li>
+                                            <li class="menu-show-4"><a href="">粮食质量检查粮食质量检查</a></li>
+                                            <li class="menu-show-4"><a href="">粮食质量检查粮食质量检查</a></li>
+                                            <li class="menu-show-4"><a href="">粮食质量检查</a></li>
+                                            <li class="menu-show-4"><a href="">粮食质量检查</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">药剂管理1</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">药剂领用申请药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">报表查询1</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
+                                            <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
+                                            <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
+                                            <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
+                                            <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
+                                            <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">药剂管理2</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">药剂管理3</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">药剂领用申请药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">药剂管理4</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请药剂领用申请</a></li>
+                                            <li class="menu-show-4"><a href="">药剂领用申请药剂领用申请</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">报表查询2</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
+                                            <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
+                                            <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
+                                            <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
+                                            <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
+                                            <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
+                                            <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
+                                            <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
+                                            <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
+                                            <li class="menu-show-4"><a href="">实时库存数量统计表</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
                         </div>
                     </li>
 
                     <li class="menu-show-2">
-                        <div class="nav-menu-2"><a href="#">资金管控系统</a></div>
+                        <div class="nav-menu-2"><a href="#">资金管控系统<i class="icon-angle-right bigger-160"></i></a></div>
+
+
                         <div class="menu-div-3">
-                            <ul class="menuBtn-3">
-                                <li class="menu-show-3 col-sm-3">
-                                    <div class="nav-menu-3"><a href="#">资金结算</a></div>
-                                    <hr>
-                                    <ul class="menuBtn-4">
-                                        <li class="menu-show-4"><a href="">入库结算</a></li>
-                                        <li class="menu-show-4"><a href="">入库结算</a></li>
-                                        <li class="menu-show-4"><a href="">入库结算</a></li>
-                                        <li class="menu-show-4"><a href="">入库结算</a></li>
-                                        <li class="menu-show-4"><a href="">入库结算</a></li>
-                                        <li class="menu-show-4"><a href="">入库结算</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-show-3 col-sm-3">
-                                    <div class="nav-menu-3"><a href="#">资金报表</a></div>
-                                    <hr>
-                                    <ul class="menuBtn-4">
-                                        <li class="menu-show-4"><a href="">预付款余额表</a></li>
-                                        <li class="menu-show-4"><a href="">预付款余额表</a></li>
-                                        <li class="menu-show-4"><a href="">预付款余额表</a></li>
-                                    </ul>
-                                </li>
+                            <i class="arrow-more icon-double-angle-down bigger-150"></i>
+                            <div class="menu-container-3">
+                                <ul class="menuBtn-3">
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">资金结算</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">入库结算</a></li>
+                                            <li class="menu-show-4"><a href="">入库结算</a></li>
+                                            <li class="menu-show-4"><a href="">入库结算</a></li>
+                                            <li class="menu-show-4"><a href="">入库结算</a></li>
+                                            <li class="menu-show-4"><a href="">入库结算</a></li>
+                                            <li class="menu-show-4"><a href="">入库结算</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">资金报表</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">预付款余额表</a></li>
+                                            <li class="menu-show-4"><a href="">预付款余额表</a></li>
+                                            <li class="menu-show-4"><a href="">预付款余额表</a></li>
+                                        </ul>
+                                    </li>
 
 
-                            </ul>
+                                </ul>
+                            </div>
                         </div>
                     </li>
 
@@ -166,61 +219,70 @@
 
             <!-- 一级菜单 -->
             <li class="menu-show-1">
-                <div class="nav-menu-1"><a href="#">智能出入库</a></div>
+                <div class="nav-menu-1"><a href="#">智能出入库<i class="icon-angle-right bigger-160"></i></a></div>
 
                 <ul class="menuBtn-2">
                     <li class="menu-show-2">
-                        <div class="nav-menu-2"><a href="#">出入库方案</a></div>
+                        <div class="nav-menu-2"><a href="#">出入库方案<i class="icon-angle-right bigger-160"></i></a></div>
                         <!-- 二级菜单 -->
+
                         <div class="menu-div-3">
-                            <ul class="menuBtn-3">
-                                <li class="menu-show-3 col-sm-3">
-                                    <div class="nav-menu-3"><a href="#">入库方案</a></div>
-                                    <hr>
-                                    <ul class="menuBtn-4">
-                                        <li class="menu-show-4"><a href="">入库方案</a></li>
-                                        <li class="menu-show-4"><a href="">入库方案</a></li>
-                                        <li class="menu-show-4"><a href="">入库方案</a></li>
-                                        <li class="menu-show-4"><a href="">入库方案</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-show-3 col-sm-3">
-                                    <div class="nav-menu-3"><a href="#">出库方案</a></div>
-                                    <hr>
-                                    <ul class="menuBtn-4">
-                                        <li class="menu-show-4"><a href="">出库方案</a></li>
-                                        <li class="menu-show-4"><a href="">出库方案</a></li>
-                                        <li class="menu-show-4"><a href="">出库方案</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <i class="arrow-more icon-double-angle-down bigger-150"></i>
+                            <div class="menu-container-3">
+                                <ul class="menuBtn-3">
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">入库方案</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">出库方案</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">出库方案</a></li>
+                                            <li class="menu-show-4"><a href="">出库方案</a></li>
+                                            <li class="menu-show-4"><a href="">出库方案</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </li>
 
                     <li class="menu-show-2">
-                        <div class="nav-menu-2"><a href="#">出库申请</a></div>
+                        <div class="nav-menu-2"><a href="#">出库申请<i class="icon-angle-right bigger-160"></i></a></div>
+
+
                         <div class="menu-div-3">
-                            <ul class="menuBtn-3">
-                                <li class="menu-show-3 col-sm-3">
-                                    <div class="nav-menu-3"><a href="#">出库申请</a></div>
-                                    <hr>
-                                    <ul class="menuBtn-4">
-                                        <li class="menu-show-4"><a href="">出库申请</a></li>
-                                        <li class="menu-show-4"><a href="">出库申请</a></li>
-                                        <li class="menu-show-4"><a href="">出库申请</a></li>
-                                        <li class="menu-show-4"><a href="">出库申请</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-show-3 col-sm-3">
-                                    <div class="nav-menu-3"><a href="#">入库申请</a></div>
-                                    <hr>
-                                    <ul class="menuBtn-4">
-                                        <li class="menu-show-4"><a href="">入库申请</a></li>
-                                        <li class="menu-show-4"><a href="">入库申请</a></li>
-                                        <li class="menu-show-4"><a href="">入库申请</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <i class="arrow-more icon-double-angle-down bigger-150"></i>
+                            <div class="menu-container-3">
+                                <ul class="menuBtn-3">
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">出库申请</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">出库申请</a></li>
+                                            <li class="menu-show-4"><a href="">出库申请</a></li>
+                                            <li class="menu-show-4"><a href="">出库申请</a></li>
+                                            <li class="menu-show-4"><a href="">出库申请</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">入库申请</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">入库申请</a></li>
+                                            <li class="menu-show-4"><a href="">入库申请</a></li>
+                                            <li class="menu-show-4"><a href="">入库申请</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </li>
 
@@ -229,34 +291,161 @@
 
             <!-- 一级菜单 -->
             <li class="menu-show-1">
-                <div class="nav-menu-1"><a href="#">决策支持</a></div>
+                <div class="nav-menu-1"><a href="#">决策支持<i class="icon-angle-right bigger-160"></i></a></div>
                 <!-- 无二级菜单 -->
                 <ul class="menuBtn-2 menu-noshow">
                     <li class="menu-show-2">
                         <div class="nav-menu-2"></div>
                         <!-- 二级菜单 -->
+
                         <div class="menu-div-3">
-                            <ul class="menuBtn-3">
-                                <li class="menu-show-3 col-sm-3">
-                                    <div class="nav-menu-3"><a href="#">主任驾驶舱</a></div>
-                                    <hr>
-                                    <ul class="menuBtn-4">
-                                        <li class="menu-show-4"><a href="">入库方案</a></li>
-                                        <li class="menu-show-4"><a href="">入库方案</a></li>
-                                        <li class="menu-show-4"><a href="">入库方案</a></li>
-                                        <li class="menu-show-4"><a href="">入库方案</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-show-3 col-sm-3">
-                                    <div class="nav-menu-3"><a href="#">出入库分析</a></div>
-                                    <hr>
-                                    <ul class="menuBtn-4">
-                                        <li class="menu-show-4"><a href="">出入库价格分析</a></li>
-                                        <li class="menu-show-4"><a href="">出库作业汇总表</a></li>
-                                        <li class="menu-show-4"><a href="">入库作业汇总表</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <i class="arrow-more icon-double-angle-down bigger-150"></i>
+                            <div class="menu-container-3">
+                                <ul class="menuBtn-3">
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">主任驾驶舱</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+
+                                            <div class="nav-menu-4"><a href="#">计划管理1</a></div>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">出入库分析1</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">出入库价格分析</a></li>
+                                            <li class="menu-show-4"><a href="">出库作业汇总表</a></li>
+                                            <li class="menu-show-4"><a href="">入库作业汇总表</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">出入库分析2</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">出入库价格分析</a></li>
+                                            <li class="menu-show-4"><a href="">出库作业汇总表</a></li>
+                                            <li class="menu-show-4"><a href="">入库作业汇总表</a></li>
+                                            <li class="menu-show-4"><a href="">出库作业汇总表</a></li>
+                                            <li class="menu-show-4"><a href="">入库作业汇总表</a></li>
+                                            <li class="menu-show-4"><a href="">出库作业汇总表</a></li>
+                                            <li class="menu-show-4"><a href="">入库作业汇总表</a></li>
+                                            <li class="menu-show-4"><a href="">出库作业汇总表</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">主任驾驶舱</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+
+                                            <div class="nav-menu-4"><a href="#">计划管理1</a></div>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">主任驾驶舱</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+
+                                            <div class="nav-menu-4"><a href="#">计划管理1</a></div>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">主任驾驶舱</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+
+                                            <div class="nav-menu-4"><a href="#">计划管理1</a></div>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">主任驾驶舱</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+
+                                            <div class="nav-menu-4"><a href="#">计划管理1</a></div>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">主任驾驶舱</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+
+                                            <div class="nav-menu-4"><a href="#">计划管理1</a></div>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="menu-show-3">
+                                        <div class="nav-menu-3"><a href="#">主任驾驶舱</a></div>
+                                        <hr>
+                                        <ul class="menuBtn-4">
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+
+                                            <div class="nav-menu-4"><a href="#">计划管理1</a></div>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                            <li class="menu-show-4"><a href="">入库方案</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </li>
 
@@ -266,23 +455,43 @@
 
         </ul>
     </div>
+    <script type="text/javascript">
+        $(function () {
+            // 瀑布流布局
+            var $container = $('.menuBtn-3');
+            $container.masonry({
+                itemSelector: '.menu-show-3',
+                gutter: 40,
+                isAnimated: true,
+            });
+
+            $(".menuBtn-3").each(function (index, curr) {
+                var containerHeight=$($(curr).parent(".menu-container-3")[0]).height();
+                debugger;
+                /*if (containerHeight<$(curr).height()) {
+                    $($($(curr).parent(".menu-container-3")[0]).prev(".arrow-more")[0]).css("visibility","visible");
+                }else {
+                    $($($(curr).parent(".menu-container-3")[0]).prev(".arrow-more")[0]).css("visibility","hidden");
+
+                }*/
+                if (index==0){
+                    $($($(curr).parent(".menu-container-3")[0]).prev(".arrow-more")[0]).css("visibility","hidden");
+                } else {
+                    $($($(curr).parent(".menu-container-3")[0]).prev(".arrow-more")[0]).css("visibility","visible");
+
+                }
+                console.log($(curr).height())
+            })
+         /*   $(".menu-container-3").each(function (index, curr) {
+                console.log($(curr).height())
+            })
+            $(".menu-div-3").each(function (index, curr) {
+                console.log($(curr).height())
+            })*/
+
+        });
+    </script>
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-
-// 			var btn_nav=".leftNavbar .leftNavbar-body .navBtn";
-// 			var btn_menu1=".leftNavbar .leftNavbar-body .menuBtn-1";
-// 			
-// 			$(btn_menu1).mouseover(function(){
-// 				$(btn_nav).css("background-color","#00c1de");
-// 			});
-// 			$(btn_menu1).mouseout(function(){
-// 				$(btn_nav).css("background-color","#313639");
-// 			});
-
-    });
-</script>
 
 
 </body>
