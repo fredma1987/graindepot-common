@@ -1,0 +1,39 @@
+/* 头像预览-放大-删除 */
+body{
+	background: white;
+}
+#headPreview, #headPreview #headBack{
+	width: 80px;
+	height: 80px;
+}
+#headPreview #headPic{
+	width: 80px;
+	height: 80px;
+	border: 2px solid #ffefcc;
+	display: table;
+	background: white;
+}
+#headPreview #headPic img{
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+#headPreview #headEditBtn{
+	margin-top: 4px;
+	background: #fcebab;
+	padding: 4px 0px;
+}
+#headPreview #headEditBtn i{
+	width: 20px;
+	height: 20px;
+}
+#headPreview #headEditBtn a:hover{
+	text-decoration: none;
+}
+#headPreview #headEnlarge i{
+	margin: 0px 20px 0px 10px;
+	color: #009CEB;
+}
+#headPreview #headDelete i{
+	color: red;
+}
