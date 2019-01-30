@@ -3,6 +3,7 @@ package com.zhoubi.graindepot.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.zhoubi.graindepot.bean.BaseUser;
+import com.zhoubi.graindepot.bean.UserAddress;
 import com.zhoubi.graindepot.bean.UserBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Base64Utils;
@@ -24,5 +25,11 @@ public class BaseController {
         HttpSession session = request.getSession();
         BaseUser currentUser = (BaseUser) session.getAttribute("currentUser");
         return currentUser;
+    }
+    public UserAddress getUserAddress() {
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpSession session = request.getSession();
+        UserAddress userAddress = (UserAddress) session.getAttribute("userAddress");
+        return userAddress;
     }
 }

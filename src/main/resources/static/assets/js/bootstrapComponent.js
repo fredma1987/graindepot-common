@@ -32,13 +32,6 @@ $.fn.bootstrapSelect = function (options, param) {
     if (options.search) {
         target.attr('data-live-search', "true");
     }
-    //加入点击事件
-    if (options.onSelect) {
-        //target.unbind("change");
-        target.change(function () {
-            options.onSelect(target.val(), target)
-        });
-    }
     //清空下拉框
     target.empty();
     //加入请选择选项
@@ -53,15 +46,15 @@ $.fn.bootstrapSelect = function (options, param) {
         init(target, options.data, options);
     } else {
         if (!options.url) return;
-        if ("post" == options.type.toLowerCase()) {
-            $.post(options.url, options.param, function (data) {
+        $.ajax({
+            url: options.url,
+            type: options.type,
+            data: options.param,
+            async:false,
+            success: function (data) {
                 init(target, data, options);
-            });
-        } else {
-            $.getJSON(options.url, options.param, function (data) {
-                init(target, data, options);
-            });
-        }
+            }
+        })
     }
 
 
@@ -73,11 +66,26 @@ $.fn.bootstrapSelect = function (options, param) {
                 option.text(item[options.textField]);
                 target.append(option);
             });
-            if (options.defaultValue != null) {
-                target.selectpicker('val', options.defaultValue);
-            }
-            target.selectpicker('refresh');
         }
+        //加入点击事件
+        if (options.onSelect) {
+            // target.unbind("change");
+            target.change(function () {
+                if (data.length > 0) {
+                    var currSelected = data.filter(function (curr) {
+                        return curr[options.valueField] == target.val()
+                    });
+                    options.onSelect(target.val(), currSelected[0], target)
+                } else {
+                    options.onSelect(target.val(), null, target)
+                }
+
+            });
+        }
+        if (options.defaultValue != null) {
+            target.selectpicker('val', options.defaultValue);
+        }
+        target.selectpicker('refresh');
         options.onLoadSuccess(target, data);
 
     }
@@ -91,12 +99,20 @@ $.fn.bootstrapSelect.methods = {
         return val;
     },
     setValue: function (jq, param) {
-        jq.val(param);
+        jq.selectpicker('val', param);
+        //      jq.trigger("change");
+        //jq.selectpicker('refresh');
+    },
+    empty: function (jq, param) {
+        jq.bootstrapSelect({
+            data: []
+        });
+        jq.selectpicker('refresh');
     }
 };
 
 $.fn.bootstrapSelect.defaults = {
-    url: 'GET',
+    type: 'GET',
     multiple: false,
     search: true,
     all: true,
@@ -163,7 +179,6 @@ $.fn.bootstrapTable = function (options, param) {
         //加载完成后绑定checkbox
         this.on('init.dt', function () {
             $(target.selector + ' th input:checkbox').on('click', function () {
-                debugger
                 var that = this;
                 $(this).closest('table').find('input:checkbox')
                     .each(function () {
@@ -417,7 +432,6 @@ $.fn.bootstrapTime.defaults = {
 
 //=============================uploadify=========================================
 $.fn.bootstrapUploadify = function (options, param) {
-    debugger;
     var target = this;
     //初始化
     if (options.buttonText) {

@@ -15,7 +15,7 @@ public class PagerModel<T> {
         return start;
     }
 
-    public void setStart(Integer start) {
+    public void setStart(int start) {
         where.put("offset",start);
         this.start = start;
     }

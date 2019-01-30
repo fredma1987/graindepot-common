@@ -1,11 +1,7 @@
 package com.zhoubi.graindepot.base;
 
 
-import java.io.Serializable;
-
-
-public class JsonResult implements Serializable {
-    private static final long serialVersionUID = -4699713095477151086L;
+public class JsonResult {
 
     /**
      * 数据
@@ -19,6 +15,10 @@ public class JsonResult implements Serializable {
      * 是否成功
      */
     private boolean success;
+
+    public Object getData() {
+        return data;
+    }
 
     public String getMessage() {
         return message;
