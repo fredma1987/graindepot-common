@@ -32,7 +32,7 @@ function getDataJson(url, param) {
                 json= result;
             },
             error: function (msg) {
-                alert("请求超时");
+                console.info(msg);
             }
         });
     return json;
