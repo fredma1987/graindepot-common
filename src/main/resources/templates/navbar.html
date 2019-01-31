@@ -326,10 +326,10 @@
 
                         <li class="light-blue right-nav">
                             <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                                <img class="nav-user-photo" th:src="@{/assets/avatars/user.jpg}" alt="Jason's Photo"/>
+                                <img class="nav-user-photo" th:src="@{/assets/avatars/user.jpg}"/>
 								<span class="user-info">
 									<small>欢迎光临,</small>
-									Jason
+									<span th:text="${user.username}"></span>
 								</span>
 
                                 <i class="icon-caret-down"></i>
