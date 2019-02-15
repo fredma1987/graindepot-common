@@ -2,7 +2,24 @@
 function doJump(url) {
     window.open(url, "_self");
 }
-
+//日期格式化
+Date.prototype.Format = function(fmt) {
+    var o = {
+        "M+": this.getMonth() + 1,                 //月份
+        "d+": this.getDate(),                    //日
+        "h+": this.getHours(),                   //小时
+        "m+": this.getMinutes(),                 //分
+        "s+": this.getSeconds(),                 //秒
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+        "S": this.getMilliseconds()             //毫秒
+    };
+    if (/(y+)/.test(fmt))
+        fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt))
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+};
 //用于form表单提交转成map对象
 function turnArrayToJson(data) {
 
@@ -90,6 +107,41 @@ function comm_initTrucktype() {
         defaultValue: 1
     });
 }
+function comm_initGroup(param) {
+    $("#groupid").bootstrapSelect({
+        url: '/graindepot-base/selector/groupList',
+        type: 'GET',
+        valueField: 'groupid',
+        textField: 'groupname',
+        param:param
+    });
+}
+function comm_initCompany(param) {
+    $("#companyid").bootstrapSelect({
+        url: '/graindepot-base/selector/companyList',
+        type: 'GET',
+        valueField: 'companyid',
+        textField: 'companyname',
+        param:param
+    });
+}
+function comm_initGraindepot(param) {
+    $("#graindepotid").bootstrapSelect({
+        url: '/graindepot-base/selector/graindepotList',
+        type: 'GET',
+        valueField: 'graindepotid',
+        textField: 'graindepotname',
+        param:param
+    });
+}
+function comm_initTrader() {
+    $("#traderid").bootstrapSelect({
+        url: '/graindepot-base/selector/traderList',
+        type: 'GET',
+        valueField: 'traderID',
+        textField: 'traderName'
+    })
+}
 function comm_initStorage(param) {
     $("#storageid").bootstrapSelect({
         url: '/graindepot-base/selector/storageList',
@@ -97,5 +149,30 @@ function comm_initStorage(param) {
         valueField: 'storageid',
         textField: 'storagename',
         param:param
+    });
+}
+function comm_initSettle() {
+    $("#settleid").bootstrapSelect({
+        url: '/graindepot-base/selector/settleList',
+        type: 'GET',
+        valueField: 'settleid',
+        textField: 'settlename'
+    });
+}
+function comm_initContract(param) {
+    $("#contractid").bootstrapSelect({
+        url: '/graindepot-inout/selectorInout/contractByMap',
+        type: 'GET',
+        valueField: 'contractid',
+        textField: 'contractNo',
+        param: param
+    });
+}function comm_initAccount(param) {
+    $("#accid").bootstrapSelect({
+        url: '/graindepot-base/selector/accountList',
+        type: 'GET',
+        valueField: 'accid',
+        textField: 'accname',
+        param: param
     });
 }
