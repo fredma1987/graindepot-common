@@ -220,17 +220,31 @@ $.fn.bootstrapTable.methods = {
     getChecked: function (jq) {
         var result = [];
         var table = jq.DataTable();
-        table.rows()[0].forEach(function (curr, index) {
-            if ($($(table.row(index).node()).find('input:checkbox:first').get(0)).prop('checked')) {
-                result.push(table.row(index).data())
-            }
-        });
+        if(table.rows(0)[0]!=""){
+            table.rows()[0].forEach(function (curr, index) {
+                if ($($(table.row(index).node()).find('input:checkbox:first').get(0)).prop('checked')) {
+                    result.push(table.row(index).data())
+                }
+            });
+        }
         return result;
     },
     //刷新数据
     reload: function (jq) {
         var table = jq.DataTable();
-        table.draw()
+        table.draw();
+    },
+    //页面删除，非数据库真删除
+    remove: function (jq) {
+        var table = jq.DataTable();
+        if(table.rows(0)[0]!=""){
+            table.rows()[0].forEach(function (curr, index) {
+                if ($($(table.row(index).node()).find('input:checkbox:first').get(0)).prop('checked')) {
+                    $(table.row(index).node()).remove();
+                }
+            });
+        }
+
     }
 };
 
