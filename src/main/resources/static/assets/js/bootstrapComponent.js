@@ -23,6 +23,7 @@ $.fn.bootstrapSelect = function (options, param) {
     //将调用时候传过来的参数和default参数合并
     options = $.extend({}, $.fn.bootstrapSelect.defaults, options || {});
     var target = $(this);
+    target.attr("settings", JSON.stringify(options));
     if (!target.hasClass("selectpicker")) target.addClass("selectpicker");
     target.attr('valuefield', options.valueField);
     target.attr('textfield', options.textField);
@@ -50,7 +51,7 @@ $.fn.bootstrapSelect = function (options, param) {
             url: options.url,
             type: options.type,
             data: options.param,
-            async:false,
+            async: false,
             success: function (data) {
                 init(target, data, options);
             }
@@ -108,6 +109,9 @@ $.fn.bootstrapSelect.methods = {
             data: []
         });
         jq.selectpicker('refresh');
+    },
+    reload: function (jq) {
+        jq.bootstrapSelect(JSON.parse(jq.attr("settings")))
     }
 };
 
@@ -320,6 +324,9 @@ $.fn.bootstrapYear.methods = {
     //获取被选中数据
     getValue: function (jq) {
         return jq.val();
+    },
+    setValue: function (jq, date) {
+        jq.datetimepicker('setDate', date);
     }
 };
 $.fn.bootstrapYear.defaults = {
@@ -353,6 +360,9 @@ $.fn.bootstrapDatetime.methods = {
     //获取被选中数据
     getValue: function (jq) {
         return jq.val();
+    },
+    setValue: function (jq, date) {
+        jq.datetimepicker('setDate', date);
     }
 };
 $.fn.bootstrapDatetime.defaults = {
@@ -384,6 +394,9 @@ $.fn.bootstrapDate.methods = {
     //获取被选中数据
     getValue: function (jq) {
         return jq.val();
+    },
+    setValue: function (jq, date) {
+        jq.datetimepicker('setDate', date);
     }
 };
 $.fn.bootstrapDate.defaults = {
@@ -415,6 +428,9 @@ $.fn.bootstrapDate.methods = {
     //bootstrapTime
     getValue: function (jq) {
         return jq.val();
+    },
+    setValue: function (jq, date) {
+        jq.datetimepicker('setDate', date);
     }
 };
 $.fn.bootstrapTime.defaults = {

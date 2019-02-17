@@ -44,6 +44,11 @@ public class JsonResult {
         this.success = success;
     }
 
+    public JsonResult(Object data, boolean success) {
+        this.data = data;
+        this.success = success;
+    }
+
     public JsonResult(Object data) {
         this.data = data;
     }
