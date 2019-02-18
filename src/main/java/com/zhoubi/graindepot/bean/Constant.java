@@ -116,4 +116,32 @@ public class Constant {
             return null;
         }
     }
+    //单据状态
+    public enum Billstage{
+        dj(1, "登记"), qy(2, "扦样"),jy(3, "检验"),cmz(4, "称毛重")
+        ,zc(5, "值仓"),cpz(6, "称皮重"),js(7, "结算"),qt(99, "其他");
+        public int value;
+        public String text;
+
+        Billstage(int value, String text) {
+            this.value = value;
+            this.text = text;
+        }
+
+        public static Integer getValue(String text) {
+            for (Billstage m : Billstage.values()) {
+                if (m.text.equals(text))
+                    return m.value;
+            }
+            return null;
+        }
+
+        public static String getText(int value) {
+            for (Billstage m : Billstage.values()) {
+                if (m.value==value)
+                    return m.text;
+            }
+            return null;
+        }
+    }
 }
