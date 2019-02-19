@@ -138,8 +138,8 @@ function comm_initTrader() {
     $("#traderid").bootstrapSelect({
         url: '/graindepot-base/selector/traderList',
         type: 'GET',
-        valueField: 'traderID',
-        textField: 'traderName'
+        valueField: 'traderid',
+        textField: 'tradername'
     })
 }
 function comm_initStorage(param) {
