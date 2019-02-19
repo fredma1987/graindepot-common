@@ -38,7 +38,7 @@ $.fn.bootstrapSelect = function (options, param) {
     //加入请选择选项
     if (options.all) {
         var option = $('<option>' + options.placeholder + '</option>');
-        option.attr('value', "");
+        option.attr('value', "-9999999");
         option.text(options.placeholder);
         target.append(option);
     }
