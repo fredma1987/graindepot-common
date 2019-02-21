@@ -8,10 +8,10 @@ public class Constant {
     //粮油大类
     public enum Graincate{
         ls(1, "粮食"), yz(2, "油脂"), qt(99, "其他");
-        public int value;
+        public Integer value;
         public String text;
 
-        Graincate(int value, String text) {
+        Graincate(Integer value, String text) {
             this.value = value;
             this.text = text;
         }
@@ -24,7 +24,7 @@ public class Constant {
             return null;
         }
 
-        public static String getText(int value) {
+        public static String getText(Integer value) {
             for (Graincate m : Graincate.values()) {
                 if (m.value==value)
                     return m.text;
@@ -35,10 +35,10 @@ public class Constant {
     //粮食种类
     public enum Grainkind{
         ls(1, "原粮"), yz(2, "成品粮"), qt(99, "其他");
-        public int value;
+        public Integer value;
         public String text;
 
-        Grainkind(int value, String text) {
+        Grainkind(Integer value, String text) {
             this.value = value;
             this.text = text;
         }
@@ -51,7 +51,7 @@ public class Constant {
             return null;
         }
 
-        public static String getText(int value) {
+        public static String getText(Integer value) {
             for (Grainkind m : Grainkind.values()) {
                 if (m.value==value)
                     return m.text;
@@ -64,10 +64,10 @@ public class Constant {
     public enum GrainGrade{
         yd(1, "一等"), ed(2, "二等"),sz(3, "三等")
         , sd(4, "四等"), wd(5, "五等"), dw(6, "等外"),wdd(99, "未定等");
-        public int value;
+        public Integer value;
         public String text;
 
-        GrainGrade(int value, String text) {
+        GrainGrade(Integer value, String text) {
             this.value = value;
             this.text = text;
         }
@@ -80,7 +80,7 @@ public class Constant {
             return null;
         }
 
-        public static String getText(int value) {
+        public static String getText(Integer value) {
             for (GrainGrade m : GrainGrade.values()) {
                 if (m.value==value)
                     return m.text;
@@ -92,10 +92,10 @@ public class Constant {
     //审核
     public enum Approval{
         dsp(0, "待审批"), sptg(1, "审批通过"),spbtg(-1, "审批不通过");
-        public int value;
+        public Integer value;
         public String text;
 
-        Approval(int value, String text) {
+        Approval(Integer value, String text) {
             this.value = value;
             this.text = text;
         }
@@ -108,7 +108,7 @@ public class Constant {
             return null;
         }
 
-        public static String getText(int value) {
+        public static String getText(Integer value) {
             for (Approval m : Approval.values()) {
                 if (m.value==value)
                     return m.text;
@@ -120,10 +120,10 @@ public class Constant {
     public enum Billstage{
         dj(1, "登记"), qy(2, "扦样"),jy(3, "检验"),cmz(4, "称毛重")
         ,zc(5, "值仓"),cpz(6, "称皮重"),js(7, "结算"),qt(99, "其他");
-        public int value;
+        public Integer value;
         public String text;
 
-        Billstage(int value, String text) {
+        Billstage(Integer value, String text) {
             this.value = value;
             this.text = text;
         }
@@ -136,7 +136,7 @@ public class Constant {
             return null;
         }
 
-        public static String getText(int value) {
+        public static String getText(Integer value) {
             for (Billstage m : Billstage.values()) {
                 if (m.value==value)
                     return m.text;

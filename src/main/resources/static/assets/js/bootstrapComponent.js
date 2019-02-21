@@ -111,7 +111,11 @@ $.fn.bootstrapSelect.methods = {
         jq.selectpicker('refresh');
     },
     reload: function (jq) {
-        jq.bootstrapSelect(JSON.parse(jq.attr("settings")))
+        var settings=jq.attr("settings");
+        if (settings){
+            jq.bootstrapSelect(JSON.parse(settings))
+        }
+
     }
 };
 
@@ -280,7 +284,7 @@ $.bootstrapBox = {
                         label: '<i class="icon-ban-circle align-top bigger-125"></i> 取消'
                     }
                 },
-                callback: function (result) {
+                 callback: function (result) {
                     obj.callback(result)
                 }
             });

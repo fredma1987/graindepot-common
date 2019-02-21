@@ -2,8 +2,9 @@
 function doJump(url) {
     window.open(url, "_self");
 }
+
 //日期格式化
-Date.prototype.Format = function(fmt) {
+Date.prototype.Format = function (fmt) {
     var o = {
         "M+": this.getMonth() + 1,                 //月份
         "d+": this.getDate(),                    //日
@@ -20,6 +21,7 @@ Date.prototype.Format = function(fmt) {
             fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 };
+
 //用于form表单提交转成map对象
 function turnArrayToJson(data) {
 
@@ -35,26 +37,48 @@ function turnArrayToJson(data) {
     }
     return json;
 }
+
 function getDataJson(url, param) {
     var json;
     if (param == undefined)
         param = {};
-        $.ajax({
-            type: "POST",// 可选
-            async: false,
-            url: url,
-            data: param,
-            dataType: "json",
-            success: function (result) {
-                json= result;
-            },
-            error: function (msg) {
-                console.info(msg);
-            }
-        });
+    $.ajax({
+        type: "POST",// 可选
+        async: false,
+        url: url,
+        data: param,
+        dataType: "json",
+        success: function (result) {
+            json = result;
+        },
+        error: function (msg) {
+            console.info(msg);
+        }
+    });
     return json;
 }
-function comm_initInspresult(){
+
+function dataJson(method, url, param) {
+    var json;
+    if (param == undefined)
+        param = {};
+    $.ajax({
+        type: method,// 可选
+        async: false,
+        url: url,
+        data: param,
+        dataType: "json",
+        success: function (result) {
+            json = result;
+        },
+        error: function (msg) {
+            console.info(msg);
+        }
+    });
+    return json;
+}
+
+function comm_initInspresult() {
     var data = [{value: 1, text: "待检"}, {value: 2, text: "接收"}, {value: 3, text: "不接收"}];
     $("#inspresult").bootstrapSelect({
         data: data,
@@ -63,6 +87,7 @@ function comm_initInspresult(){
         defaultValue: 1
     });
 }
+
 function comm_initGrain() {
     $("#grainid").bootstrapSelect({
         url: '/graindepot-base/selector/grainList',
@@ -71,15 +96,17 @@ function comm_initGrain() {
         textField: 'grainname'
     });
 }
+
 function comm_initGrainattr() {
     $("#grainattrid").bootstrapSelect({
-        url:  '/graindepot-base/selector/grainattrList',
+        url: '/graindepot-base/selector/grainattrList',
         type: 'GET',
         valueField: 'grainattrid',
         textField: 'grainattrname'
     });
 }
-function comm_initGrade(){
+
+function comm_initGrade() {
     var data = [{value: 1, text: "一等"}, {value: 2, text: "二等"}, {value: 3, text: "三等"}
         , {value: 4, text: "四等"}, {value: 5, text: "五等"}, {value: 6, text: "等外"}];
     $("#grade").bootstrapSelect({
@@ -89,8 +116,12 @@ function comm_initGrade(){
         defaultValue: 3
     });
 }
+
 function comm_initSettlemothod() {
-    var data = [{value: 1, text: "现金结算"}, {value: 2, text: "银行卡结算"}, {value: 3, text: "微信结算"}, {value: 4, text: "支付宝结算"}];
+    var data = [{value: 1, text: "现金结算"}, {value: 2, text: "银行卡结算"}, {value: 3, text: "微信结算"}, {
+        value: 4,
+        text: "支付宝结算"
+    }];
     $("#settlemothod").bootstrapSelect({
         data: data,
         valueField: 'value',
@@ -98,6 +129,7 @@ function comm_initSettlemothod() {
         defaultValue: 1
     });
 }
+
 function comm_initTrucktype() {
     var data = [{value: 1, text: "车辆"}, {value: 2, text: "船舶"}, {value: 3, text: "火车"}, {value: 99, text: "其他"}];
     $("#trucktype").bootstrapSelect({
@@ -107,50 +139,56 @@ function comm_initTrucktype() {
         defaultValue: 1
     });
 }
+
 function comm_initGroup(param) {
     $("#groupid").bootstrapSelect({
         url: '/graindepot-base/selector/groupList',
         type: 'GET',
         valueField: 'groupid',
         textField: 'groupname',
-        param:param
+        param: param
     });
 }
+
 function comm_initCompany(param) {
     $("#companyid").bootstrapSelect({
         url: '/graindepot-base/selector/companyList',
         type: 'GET',
         valueField: 'companyid',
         textField: 'companyname',
-        param:param
+        param: param
     });
 }
+
 function comm_initGraindepot(param) {
     $("#graindepotid").bootstrapSelect({
         url: '/graindepot-base/selector/graindepotList',
         type: 'GET',
         valueField: 'graindepotid',
         textField: 'graindepotname',
-        param:param
+        param: param
     });
 }
+
 function comm_initTrader() {
     $("#traderid").bootstrapSelect({
         url: '/graindepot-base/selector/traderList',
         type: 'GET',
-        valueField: 'traderID',
-        textField: 'traderName'
+        valueField: 'traderid',
+        textField: 'tradername'
     })
 }
+
 function comm_initStorage(param) {
     $("#storageid").bootstrapSelect({
         url: '/graindepot-base/selector/storageList',
         type: 'GET',
         valueField: 'storageid',
         textField: 'storagename',
-        param:param
+        param: param
     });
 }
+
 function comm_initSettle() {
     $("#settleid").bootstrapSelect({
         url: '/graindepot-base/selector/settleList',
@@ -159,6 +197,7 @@ function comm_initSettle() {
         textField: 'settlename'
     });
 }
+
 function comm_initContract(param) {
     $("#contractid").bootstrapSelect({
         url: '/graindepot-inout/selectorInout/contractByMap',
@@ -167,7 +206,9 @@ function comm_initContract(param) {
         textField: 'contractNo',
         param: param
     });
-}function comm_initAccount(param) {
+}
+
+function comm_initAccount(param) {
     $("#accid").bootstrapSelect({
         url: '/graindepot-base/selector/accountList',
         type: 'GET',
@@ -175,4 +216,15 @@ function comm_initContract(param) {
         textField: 'accname',
         param: param
     });
+}
+
+//判断是否为数字
+function isNumber(val) {
+    var regPos = /^\d+(\.\d+)?$/; //非负浮点数
+    var regNeg = /^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$/; //负浮点数
+    if (regPos.test(val) || regNeg.test(val)) {
+        return true;
+    } else {
+        return false;
+    }
 }
