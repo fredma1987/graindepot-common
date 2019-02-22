@@ -203,7 +203,7 @@ function comm_initContract(param) {
         url: '/graindepot-inout/selectorInout/contractByMap',
         type: 'GET',
         valueField: 'contractid',
-        textField: 'contractNo',
+        textField: 'contractno',
         param: param
     });
 }

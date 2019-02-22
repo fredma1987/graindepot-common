@@ -220,6 +220,17 @@ $.fn.bootstrapTable = function (options, param) {
 };
 
 $.fn.bootstrapTable.methods = {
+    //获取所有数据
+    getAll: function (jq) {
+        var result = [];
+        var table = jq.DataTable();
+        if(table.rows(0)[0]!=""){
+            table.rows()[0].forEach(function (curr, index) {
+                    result.push(table.row(index).data());
+            });
+        }
+        return result;
+    },
     //获取被选中数据
     getChecked: function (jq) {
         var result = [];
@@ -244,6 +255,7 @@ $.fn.bootstrapTable.methods = {
         if(table.rows(0)[0]!=""){
             table.rows()[0].forEach(function (curr, index) {
                 if ($($(table.row(index).node()).find('input:checkbox:first').get(0)).prop('checked')) {
+                    $($(table.row(index).node()).find('input:checkbox:first').get(0)).removeProp('checked');//去除原来选中的属性
                     $(table.row(index).node()).remove();
                 }
             });

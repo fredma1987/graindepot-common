@@ -82,6 +82,7 @@ body{
 	width: 960px;
 	max-width: 1000px;
 	position:absolute;
+	padding: 20px;
 	top:0px;
 	left:0px;
 }
