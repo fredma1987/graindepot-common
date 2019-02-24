@@ -27,7 +27,8 @@
         var menus;
         $(function () {
             var html_context = getCookie('html_context');
-            if (html_context == ''){
+            if (html_context == ''||html_context==undefined){
+                html_context='';
                 menus=getDataJson('/graindepot-user/user/menuTree',null).data;
                 menus=eval(JSON.stringify(menus));
                 for (var i = 0; i < menus.length; i++) {
@@ -61,21 +62,22 @@
                                         }
 
                                     }
+                                    html_context += '</ul>' +
+                                            '</li>';
                                 }
-                                html_context += '</ul>' +
-                                        '</li>';
                             }
+                            html_context += '</ul>';
+                            html_context += '</div>';
+                            html_context += '</div>';
+                            html_context += '</li>';
                         }
-                        html_context += '</ul>';
-                        html_context += '</div>';
-                        html_context += '</div>';
-                        html_context += '</li>';
                     }
                     html_context += '</ul>' +
                             '</li>';
                 }
                 setCookie('html_context',html_context,7);
             }
+            console.info(html_context);
             $('.menuBtn-1').html(html_context);
         });
         //读Cookie
