@@ -54,6 +54,25 @@ function getDataJson(url, param) {
         });
     return json;
 }
+function dataJson(method, url, param) {
+    var json;
+    if (param == undefined)
+        param = {};
+    $.ajax({
+        type: method,// 可选
+        async: false,
+        url: url,
+        data: param,
+        dataType: "json",
+        success: function (result) {
+            json = result;
+        },
+        error: function (msg) {
+            console.info(msg);
+        }
+    });
+    return json;
+}
 function comm_initInspresult(){
     var data = [{value: 1, text: "待检"}, {value: 2, text: "接收"}, {value: 3, text: "不接收"}];
     $("#inspresult").bootstrapSelect({

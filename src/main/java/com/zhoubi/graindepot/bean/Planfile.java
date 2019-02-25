@@ -26,14 +26,16 @@ public class Planfile implements Serializable {
 	private String createusername;//创建人姓名
 
 	public String getPlantypeidstr() {
-		if (plantypeid==1) {
-			return "轮换计划";
-		}
-		if (plantypeid==2) {
-			return "轮出计划";
-		}
-		if (plantypeid==3) {
-			return "轮入计划";
+		if(plantypeid!=null){
+			if (plantypeid==1) {
+				return "轮换计划";
+			}
+			if (plantypeid==2) {
+				return "轮出计划";
+			}
+			if (plantypeid==3) {
+				return "轮入计划";
+			}
 		}
 		return plantypeidstr;
 	}
@@ -119,7 +121,7 @@ public class Planfile implements Serializable {
 		this.dispatchdatestr=dispatchdatestr;
 	}
 	public String getDispatchdatestr(){
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		return dispatchdate == null ? dispatchdatestr : simpleDateFormat.format(dispatchdate);
 	}
 	public Date getDispatchdate(){
@@ -133,7 +135,7 @@ public class Planfile implements Serializable {
 		this.planbegindatestr=planbegindatestr;
 	}
 	public String getPlanbegindatestr(){
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		return planbegindate == null ? planbegindatestr : simpleDateFormat.format(planbegindate);
 	}
 	public Date getPlanbegindate(){
@@ -147,7 +149,7 @@ public class Planfile implements Serializable {
 		this.planenddatestr=planenddatestr;
 	}
 	public String getPlanenddatestr(){
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		return planenddate == null ? planenddatestr : simpleDateFormat.format(planenddate);
 	}
 	public Date getPlanenddate(){
