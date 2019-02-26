@@ -152,6 +152,9 @@ function comm_initProvince(param) {
             }
         }
     });
+    if(g_item.provinceid){
+        $("#provinceid").bootstrapSelect("setValue",g_item.provinceid);
+    }
 }
 function comm_initCity(param) {
     $("#cityid").bootstrapSelect({
@@ -169,6 +172,9 @@ function comm_initCity(param) {
             }
         }
     });
+    if(g_item.cityid){
+        $("#cityid").bootstrapSelect("setValue",g_item.cityid);
+    }
 }
 function comm_initCounty(param) {
     $("#countyid").bootstrapSelect({
@@ -186,6 +192,9 @@ function comm_initCounty(param) {
             }
         }
     });
+    if(g_item.countyid){
+        $("#countyid").bootstrapSelect("setValue",g_item.countyid);
+    }
 }
 function comm_initGroup(param) {
     $("#groupid").bootstrapSelect({
@@ -201,6 +210,9 @@ function comm_initGroup(param) {
             }
         }
     });
+    if(g_item.groupid){
+        $("#groupid").bootstrapSelect("setValue",g_item.groupid);
+    }
 }
 function comm_initCompany(param) {
     $("#companyid").bootstrapSelect({
@@ -217,6 +229,9 @@ function comm_initCompany(param) {
             }
         }
     });
+    if(g_item.companyid){
+        $("#companyid").bootstrapSelect("setValue",g_item.companyid);
+    }
 }
 function comm_initGraindepot(param) {
     $("#graindepotid").bootstrapSelect({
@@ -226,6 +241,9 @@ function comm_initGraindepot(param) {
         textField: 'graindepotname',
         param:param
     });
+    if(g_item.graindepotid){
+        $("#graindepotid").bootstrapSelect("setValue",g_item.graindepotid);
+    }
 }
 function comm_initTrader() {
     $("#traderid").bootstrapSelect({
