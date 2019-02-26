@@ -126,13 +126,80 @@ function comm_initTrucktype() {
         defaultValue: 1
     });
 }
+function comm_initTaxnature() {
+    var data = [{value: 1, text: "小规模纳税人"}, {value: 2, text: "一般纳税人"}];
+    $("#trucktype").bootstrapSelect({
+        data: data,
+        valueField: 'value',
+        textField: 'text',
+        defaultValue: 1
+    });
+}
+function comm_initProvince(param) {
+    $("#provinceid").bootstrapSelect({
+        url: '/graindepot-base/selector/provinceList',
+        type: 'GET',
+        valueField: 'provinceid',
+        textField: 'provincename',
+        param:param,
+        onSelect: function (value) {
+            var myparam;
+            if(value!=""){
+                myparam={"provinceid":value};
+                comm_initCity(myparam);
+                comm_initGroup(myparam);
+                comm_initCompany(myparam);
+            }
+        }
+    });
+}
+function comm_initCity(param) {
+    $("#cityid").bootstrapSelect({
+        url: '/graindepot-base/selector/cityList',
+        type: 'GET',
+        valueField: 'cityid',
+        textField: 'cityname',
+        param:param,
+        onSelect: function (value) {
+            if(value!=""){
+                var myparam = {"cityid": value};
+                comm_initCounty(myparam);
+                comm_initGroup(myparam);
+                comm_initCompany(myparam);
+            }
+        }
+    });
+}
+function comm_initCounty(param) {
+    $("#countyid").bootstrapSelect({
+        url: '/graindepot-base/selector/countyList',
+        type: 'GET',
+        valueField: 'countyid',
+        textField: 'countyname',
+        param:param,
+        onSelect: function (value) {
+            var myparam;
+            if(value!=""){
+                myparam = {"countyid": value};
+                comm_initGroup(myparam);
+                comm_initCompany(myparam);
+            }
+        }
+    });
+}
 function comm_initGroup(param) {
     $("#groupid").bootstrapSelect({
         url: '/graindepot-base/selector/groupList',
         type: 'GET',
         valueField: 'groupid',
         textField: 'groupname',
-        param:param
+        param:param,
+        onSelect: function (value) {
+            if(value!=""){
+                var myparam = {"groupid": value};
+                comm_initCompany(myparam);
+            }
+        }
     });
 }
 function comm_initCompany(param) {
@@ -141,7 +208,14 @@ function comm_initCompany(param) {
         type: 'GET',
         valueField: 'companyid',
         textField: 'companyname',
-        param:param
+        param:param,
+        onSelect: function (value) {
+            var myparam;
+            if(value!=""){
+                myparam = {"companyid": value};
+                comm_initGraindepot(myparam);
+            }
+        }
     });
 }
 function comm_initGraindepot(param) {
@@ -194,4 +268,14 @@ function comm_initContract(param) {
         textField: 'accname',
         param: param
     });
+}
+//判断是否为数字
+function isNumber(val) {
+    var regPos = /^\d+(\.\d+)?$/; //非负浮点数
+    var regNeg = /^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$/; //负浮点数
+    if (regPos.test(val) || regNeg.test(val)) {
+        return true;
+    } else {
+        return false;
+    }
 }
