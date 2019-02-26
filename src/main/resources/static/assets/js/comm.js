@@ -81,6 +81,9 @@ function comm_initInspresult(){
         textField: 'text',
         defaultValue: 1
     });
+    if(g_item.inspresult){
+        $("#inspresult").bootstrapSelect("setValue",g_item.inspresult);
+    }
 }
 function comm_initGrain() {
     $("#grainid").bootstrapSelect({
@@ -89,6 +92,9 @@ function comm_initGrain() {
         valueField: 'grainid',
         textField: 'grainname'
     });
+    if(g_item.grainid){
+        $("#grainid").bootstrapSelect("setValue",g_item.grainid);
+    }
 }
 function comm_initGrainattr() {
     $("#grainattrid").bootstrapSelect({
@@ -97,6 +103,31 @@ function comm_initGrainattr() {
         valueField: 'grainattrid',
         textField: 'grainattrname'
     });
+    if(g_item.grainattrid){
+        $("#grainattrid").bootstrapSelect("setValue",g_item.grainattrid);
+    }
+}
+function comm_initDefGrain() {
+    $("#defgrainid").bootstrapSelect({
+        url: '/graindepot-base/selector/grainList',
+        type: 'GET',
+        valueField: 'grainid',
+        textField: 'grainname'
+    });
+    if(g_item.defgrainid){
+        $("#defgrainid").bootstrapSelect("setValue",g_item.defgrainid);
+    }
+}
+function comm_initDefGrainattr() {
+    $("#defgrainattrid").bootstrapSelect({
+        url:  '/graindepot-base/selector/grainattrList',
+        type: 'GET',
+        valueField: 'grainattrid',
+        textField: 'grainattrname'
+    });
+    if(g_item.defgrainattrid){
+        $("#defgrainattrid").bootstrapSelect("setValue",g_item.defgrainattrid);
+    }
 }
 function comm_initGrade(){
     var data = [{value: 1, text: "一等"}, {value: 2, text: "二等"}, {value: 3, text: "三等"}
@@ -107,6 +138,9 @@ function comm_initGrade(){
         textField: 'text',
         defaultValue: 3
     });
+    if(g_item.grade){
+        $("#grade").bootstrapSelect("setValue",g_item.grade);
+    }
 }
 function comm_initSettlemothod() {
     var data = [{value: 1, text: "现金结算"}, {value: 2, text: "银行卡结算"}, {value: 3, text: "微信结算"}, {value: 4, text: "支付宝结算"}];
@@ -116,6 +150,9 @@ function comm_initSettlemothod() {
         textField: 'text',
         defaultValue: 1
     });
+    if(g_item.settlemothod){
+        $("#settlemothod").bootstrapSelect("setValue",g_item.settlemothod);
+    }
 }
 function comm_initTrucktype() {
     var data = [{value: 1, text: "车辆"}, {value: 2, text: "船舶"}, {value: 3, text: "火车"}, {value: 99, text: "其他"}];
@@ -125,15 +162,20 @@ function comm_initTrucktype() {
         textField: 'text',
         defaultValue: 1
     });
+    if(g_item.trucktype){
+        $("#trucktype").bootstrapSelect("setValue",g_item.trucktype);
+    }
 }
 function comm_initTaxnature() {
     var data = [{value: 1, text: "小规模纳税人"}, {value: 2, text: "一般纳税人"}];
-    $("#trucktype").bootstrapSelect({
+    $("#taxnature").bootstrapSelect({
         data: data,
         valueField: 'value',
-        textField: 'text',
-        defaultValue: 1
+        textField: 'text'
     });
+    if(g_item.taxnature){
+        $("#taxnature").bootstrapSelect("setValue",g_item.taxnature);
+    }
 }
 function comm_initProvince(param) {
     $("#provinceid").bootstrapSelect({
@@ -251,7 +293,10 @@ function comm_initTrader() {
         type: 'GET',
         valueField: 'traderid',
         textField: 'tradername'
-    })
+    });
+    if(g_item.traderid){
+        $("#traderid").bootstrapSelect("setValue",g_item.traderid);
+    }
 }
 function comm_initStorage(param) {
     $("#storageid").bootstrapSelect({
@@ -261,6 +306,46 @@ function comm_initStorage(param) {
         textField: 'storagename',
         param:param
     });
+    if(g_item.storageid){
+        $("#storageid").bootstrapSelect("setValue",g_item.storageid);
+    }
+}
+function comm_initStorageType(param) {
+    $("#storagetypeid").bootstrapSelect({
+        url: '/graindepot-base/selector/storagetypeList',
+        type: 'GET',
+        valueField: 'storagetypeid',
+        textField: 'storagetypename',
+        param:param
+    });
+    if(g_item.storagetypeid){
+        $("#storagetypeid").bootstrapSelect("setValue",g_item.storagetypeid);
+    }
+}
+function comm_initStorageStructure(param) {
+    $("#storagestructureid").bootstrapSelect({
+        url: '/graindepot-base/selector/storagestructureList',
+        type: 'GET',
+        valueField: 'storagestructureid',
+        textField: 'storagestructurename',
+        param:param
+    });
+    if(g_item.storagestructureid){
+        $("#storagestructureid").bootstrapSelect("setValue",g_item.storagestructureid);
+    }
+}
+function comm_initStoragestatus(param) {
+    var data = [{'value': 1, 'text': '完全可用 '}, {'value': 2, 'text': '需大修'},
+        {'value': 3, 'text': '待报废'}, {'value': 4, 'text': '待拆除'},
+        {'value': 5, 'text': '死角仓'}, {'value': 6, 'text': '其他'}];
+    $("#storagestatus").bootstrapSelect({
+        data: data,
+        valueField: 'value',
+        textField: 'text'
+    });
+    if(g_item.storagestatus){
+        $("#storagestatus").bootstrapSelect("setValue",g_item.storagestatus);
+    }
 }
 function comm_initSettle() {
     $("#settleid").bootstrapSelect({
@@ -269,6 +354,9 @@ function comm_initSettle() {
         valueField: 'settleid',
         textField: 'settlename'
     });
+    if(g_item.settleid){
+        $("#settleid").bootstrapSelect("setValue",g_item.settleid);
+    }
 }
 function comm_initContract(param) {
     $("#contractid").bootstrapSelect({
@@ -278,7 +366,11 @@ function comm_initContract(param) {
         textField: 'contractno',
         param: param
     });
-}function comm_initAccount(param) {
+    if(g_item.contractid){
+        $("#contractid").bootstrapSelect("setValue",g_item.contractid);
+    }
+}
+function comm_initAccount(param) {
     $("#accid").bootstrapSelect({
         url: '/graindepot-base/selector/accountList',
         type: 'GET',
@@ -286,6 +378,35 @@ function comm_initContract(param) {
         textField: 'accname',
         param: param
     });
+    if(g_item.accid){
+        $("#accid").bootstrapSelect("setValue",g_item.accid);
+    }
+}
+function comm_initCompanynature(){
+    var data = [{value: 1, text: "国有企业"}, {value: 2, text: "民营企业"}, {value: 3, text: "其他内资企业"},
+        {value: 4, text: "港澳台商投资企业"}, {value: 5, text: "外商投资企业"},
+        {value: 6, text: "事业单位"},{value: 99, text: "其他"}];
+    $("#companynatureid").bootstrapSelect({
+        data: data,
+        valueField: 'value',
+        textField: 'text'
+    });
+    if(g_item.companynatureid){
+        $("#companynatureid").bootstrapSelect("setValue",g_item.companynatureid);
+    }
+}
+function comm_initCompanytype(){
+    var data = [{value: 1, text: "仓储企业"}, {value: 2, text: "加工企业"}, {value: 3, text: "批发企业"},
+        {value: 4, text: "物流公司"}, {value: 5, text: "零售企业"},
+        {value: 6, text: "军供站"},{value: 7, text: "事业单位"},{value: 99, text: "其他"}];
+    $("#companytypeid").bootstrapSelect({
+        data: data,
+        valueField: 'value',
+        textField: 'text'
+    });
+    if(g_item.companytypeid){
+        $("#companytypeid").bootstrapSelect("setValue",g_item.companytypeid);
+    }
 }
 //判断是否为数字
 function isNumber(val) {
