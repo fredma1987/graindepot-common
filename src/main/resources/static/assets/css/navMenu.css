@@ -50,7 +50,7 @@
 .myNav .dropdown-menu{
     border-width: 0px;
     border-radius: 0px;
-    width: 100%;
+    width: 200px;
     position: fixed;
     top: 45px;
     background: #303538;

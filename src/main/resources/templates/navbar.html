@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <title>智慧粮库云平台</title>
+    <title>智能粮库云平台</title>
     <!-- <link rel="stylesheet" href="assets/css/bootstrap.min.css">
      <script src="assets/js/jquery-1.12.3.js"></script>
      <script src="assets/js/bootstrap.min.js"></script>-->
@@ -27,75 +27,50 @@
                         <!--<img th:src="@{/assets/images/gallery/logo.png}"/>-->
                         <small>
                             <i class="icon-leaf"></i>
-                            智慧粮库云平台
+                            智能粮库云平台
                         </small>
                     </div>
                     <div class="myNav">
                         <ul class="nav navbar-nav">
-                            <!--<li class="active"><a href="#" class="myMenu">首页</a></li>-->
-                            <li class=""><a th:href="@{/main}" class="myMenu">首页</a></li>
-                            <li class="dropdown"><a href="#" class="dropdown-toggle myMenu" data-toggle="dropdown">产品中心 <b class="caret"></b></a>
+                            <li class=""><a th:href="@{/index}" class="myMenu">首页</a></li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle myMenu" data-toggle="dropdown">粮食入库 <b class="caret"></b></a>
                                 <ul class="dropdown-menu dropdown-menu-1">
-                                    <li class="col-sm-4">
+                                    <li class="col-sm-12">
                                         <ul>
-                                            <li class="dropdown-header">产品介绍</li>
                                             <li class="divider"></li>
-                                            <li class="menuLink"><a href="#" target="_blank">关于产品</a></li>
-                                            <li class="menuLink"><a href="#" target="_blank">企业文化</a></li>
-                                            <li class="menuLink"><a href="#" target="_blank">媒体报道</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="col-sm-4">
-                                        <ul>
-                                            <li class="dropdown-header">产品介绍</li>
-                                            <li class="divider"></li>
-                                            <li class="menuLink"><a href="#" target="_blank">关于产品</a></li>
-                                            <li class="menuLink"><a href="#" target="_blank">企业文化</a></li>
-                                            <li class="menuLink"><a href="#" target="_blank">媒体报道</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="col-sm-4">
-                                        <ul>
-                                            <li class="dropdown-header">产品介绍</li>
-                                            <li class="divider"></li>
-                                            <li class="menuLink"><a href="#" target="_blank">关于产品</a></li>
-                                            <li class="menuLink"><a href="#" target="_blank">企业文化</a></li>
-                                            <li class="menuLink"><a href="#" target="_blank">媒体报道</a></li>
+                                            <li class="menuLink"><a href="#" target="_blank">入库登记</a></li>
+                                            <li class="menuLink"><a href="#" target="_blank">扦样检验</a></li>
+                                            <li class="menuLink"><a href="#" target="_blank">入库检斤</a></li>
+                                            <li class="menuLink"><a href="#" target="_blank">收购结算</a></li>
+                                            <li class="menuLink"><a href="#" target="_blank">入库补单</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#" class="dropdown-toggle myMenu" data-toggle="dropdown">入库登记 <b class="caret"></b></a>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle myMenu" data-toggle="dropdown">粮食出库 <b class="caret"></b></a>
                                 <ul class="dropdown-menu  dropdown-menu-2">
-                                    <li class="col-sm-2">
+                                    <li class="col-sm-12">
                                         <ul>
-                                            <li class="dropdown-header">产品介绍</li>
                                             <li class="divider"></li>
-                                            <li class="menuLink"><a href="#" target="_blank">关于产品</a></li>
-                                            <li class="menuLink"><a href="#" target="_blank">企业文化</a></li>
-                                            <li class="menuLink"><a href="#" target="_blank">媒体报道</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="col-sm-4">
-                                        <ul>
-                                            <li class="dropdown-header">产品介绍</li>
-                                            <li class="divider"></li>
-                                            <li class="menuLink"><a href="#" target="_blank">关于产品</a></li>
-                                            <li class="menuLink"><a href="#" target="_blank">企业文化</a></li>
-                                            <li class="menuLink"><a href="#" target="_blank">媒体报道</a></li>
+                                            <li class="menuLink"><a href="#" target="_blank">预收款</a></li>
+                                            <li class="menuLink"><a href="#" target="_blank">出库登记</a></li>
+                                            <li class="menuLink"><a href="#" target="_blank">出库检斤</a></li>
+                                            <li class="menuLink"><a href="#" target="_blank">销售结算</a></li>
+                                            <li class="menuLink"><a href="#" target="_blank">出库补单</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#" class="dropdown-toggle myMenu" data-toggle="dropdown">添加用户 <b class="caret"></b></a>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle myMenu" data-toggle="dropdown">统计分析 <b class="caret"></b></a>
                                 <ul class="dropdown-menu  dropdown-menu-3">
-                                    <li class="col-sm-2">
+                                    <li class="col-sm-12">
                                         <ul>
-                                            <li class="dropdown-header">添加用户</li>
                                             <li class="divider"></li>
-                                            <li class="menuLink"><a href="#" target="_blank">关于产品</a></li>
-                                            <li class="menuLink"><a href="#" target="_blank">企业文化</a></li>
-                                            <li class="menuLink"><a href="#" target="_blank">媒体报道</a></li>
+                                            <li class="menuLink"><a href="#" target="_blank">入库作业汇总表</a></li>
+                                            <li class="menuLink"><a href="#" target="_blank">出库作业汇总表</a></li>
+                                            <li class="menuLink"><a href="#" target="_blank">实时库存统计表</a></li>
+                                            <li class="menuLink"><a href="#" target="_blank">收支存平衡月报表</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -118,16 +93,15 @@
                         <li class="grey right-nav">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <i class="icon-tasks"></i>
-                                <span class="badge badge-grey">4</span>
+                                <span class="badge badge-grey">0</span>
                             </a>
 
                             <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
                                 <li class="dropdown-header">
                                     <i class="icon-ok"></i>
-                                    还有4个任务完成
+                                    还有0个任务待完成
                                 </li>
-
-                                <li>
+                                <!--<li>
                                     <a href="#">
                                         <div class="clearfix">
                                             <span class="pull-left">软件更新</span>
@@ -139,7 +113,6 @@
                                         </div>
                                     </a>
                                 </li>
-
                                 <li>
                                     <a href="#">
                                         <div class="clearfix">
@@ -152,7 +125,6 @@
                                         </div>
                                     </a>
                                 </li>
-
                                 <li>
                                     <a href="#">
                                         <div class="clearfix">
@@ -165,7 +137,6 @@
                                         </div>
                                     </a>
                                 </li>
-
                                 <li>
                                     <a href="#">
                                         <div class="clearfix">
@@ -178,29 +149,26 @@
                                         </div>
                                     </a>
                                 </li>
-
                                 <li>
                                     <a href="#">
                                         查看任务详情
                                         <i class="icon-arrow-right"></i>
                                     </a>
-                                </li>
+                                </li>-->
                             </ul>
                         </li>
 
                         <li class="purple right-nav">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <i class="icon-bell-alt icon-animated-bell"></i>
-                                <span class="badge badge-important">8</span>
+                                <span class="badge badge-important">0</span>
                             </a>
-
                             <ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
                                 <li class="dropdown-header">
                                     <i class="icon-warning-sign"></i>
-                                    8条通知
+                                    0条通知
                                 </li>
-
-                                <li>
+                                <!--<li>
                                     <a href="#">
                                         <div class="clearfix">
 											<span class="pull-left">
@@ -211,14 +179,12 @@
                                         </div>
                                     </a>
                                 </li>
-
                                 <li>
                                     <a href="#">
                                         <i class="btn btn-xs btn-primary icon-user"></i>
                                         切换为编辑登录..
                                     </a>
                                 </li>
-
                                 <li>
                                     <a href="#">
                                         <div class="clearfix">
@@ -230,7 +196,6 @@
                                         </div>
                                     </a>
                                 </li>
-
                                 <li>
                                     <a href="#">
                                         <div class="clearfix">
@@ -242,29 +207,27 @@
                                         </div>
                                     </a>
                                 </li>
-
                                 <li>
                                     <a href="#">
                                         查看所有通知
                                         <i class="icon-arrow-right"></i>
                                     </a>
-                                </li>
+                                </li>-->
                             </ul>
                         </li>
 
                         <li class="green right-nav">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <i class="icon-envelope icon-animated-vertical"></i>
-                                <span class="badge badge-success">5</span>
+                                <span class="badge badge-success">0</span>
                             </a>
 
                             <ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
                                 <li class="dropdown-header">
                                     <i class="icon-envelope-alt"></i>
-                                    5条消息
+                                    0条消息
                                 </li>
-
-                                <li>
+                                <!--<li>
                                     <a href="#">
                                         <img th:src="@{/assets/avatars/avatar.png}" class="msg-photo" alt="Alex's Avatar"/>
 										<span class="msg-body">
@@ -280,7 +243,6 @@
 										</span>
                                     </a>
                                 </li>
-
                                 <li>
                                     <a href="#">
                                         <img th:src="@{/assets/avatars/avatar3.png}" class="msg-photo" alt="Susan's Avatar"/>
@@ -297,7 +259,6 @@
 										</span>
                                     </a>
                                 </li>
-
                                 <li>
                                     <a href="#">
                                         <img th:src="@{/assets/avatars/avatar4.png}" class="msg-photo" alt="Bob's Avatar"/>
@@ -314,13 +275,12 @@
 										</span>
                                     </a>
                                 </li>
-
                                 <li>
                                     <a href="inbox.html">
                                         查看所有消息
                                         <i class="icon-arrow-right"></i>
                                     </a>
-                                </li>
+                                </li>-->
                             </ul>
                         </li>
 
@@ -342,16 +302,13 @@
                                         设置
                                     </a>
                                 </li>
-
                                 <li>
                                     <a href="#">
                                         <i class="icon-user"></i>
                                         个人资料
                                     </a>
                                 </li>
-
                                 <li class="divider"></li>
-
                                 <li>
                                     <a th:href="@{/logout}">
                                         <i class="icon-off"></i>
@@ -373,6 +330,8 @@
                 var showId=".myNav .nav .open .dropdown-menu";/*下拉框*/
                 $(dropId).mouseover(function(){
                     $(this).addClass('open');
+                    var left=$(this).position().left;
+                    $(this).children(".dropdown-menu").css("left",left-20);
                 });
                 $(dropId).mouseout(function(){
                     $(this).removeClass('open');
