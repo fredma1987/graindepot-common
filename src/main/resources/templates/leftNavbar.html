@@ -33,29 +33,59 @@
                 menus=eval(JSON.stringify(menus));
                 for (var i = 0; i < menus.length; i++) {
                     html_context += '<li class="menu-show-1">' +
-                            '<div class="nav-menu-1"><a href="#">' + menus[i].title + '<i class="icon-angle-right bigger-160"></i></a></div>' +
+                            '<div class="nav-menu-1"><a href="';
+                    if(menus[i].href){
+                        html_context +=menus[i].href+'" style="cursor:pointer"> ';
+                    }else{
+                        html_context +='#">';
+                    }
+                    html_context +=  menus[i].title + '<i class="icon-angle-right bigger-160"></i></a></div>' +
                             '<ul class="menuBtn-2">';
                     if (menus[i].children) {
                         for (var j = 0; j < menus[i].children.length; j++) {
                             html_context += '<li class="menu-show-2">' +
-                                    '<div class="nav-menu-2"><a href="#">' + menus[i].children[j].title + '<i class="icon-angle-right bigger-160"></i></a></div>' +
+                                    '<div class="nav-menu-2"><a href="';
+                                    if(menus[i].children[j].href){
+                                        html_context +=menus[i].children[j].href+'" style="cursor:pointer"> ';
+                                    }else{
+                                        html_context +='#">';
+                                    }
+                            html_context += menus[i].children[j].title + '<i class="icon-angle-right bigger-160"></i></a></div>' +
                                     '<div class="menu-div-3">' +
                                     '<div class="menu-container-3">' +
                                     '<ul class="menuBtn-3">';
                             if (menus[i].children[j].children) {
                                 for (var k = 0; k < menus[i].children[j].children.length; k++) {
                                     html_context += '<li class="menu-show-3">' +
-                                            '<div class="nav-menu-3"><a href="#">' + menus[i].children[j].children[k].title + '</a></div>' +
+                                            '<div class="nav-menu-3"><a href="' ;
+                                            if(menus[i].children[j].children[k].href){
+                                                html_context +=menus[i].children[j].children[k].href+'" style="cursor:pointer"> ';
+                                            }else{
+                                                html_context +='#">';
+                                            }
+                                    html_context += menus[i].children[j].children[k].title + '</a></div>' +
                                             '<hr>' +
                                             '<ul class="menuBtn-4">';
                                     if (menus[i].children[j].children[k].children) {
                                         for (var l = 0; l < menus[i].children[j].children[k].children.length; l++) {
                                             html_context += '<div class="nav-menu-4">' +
-                                                    '<a href="#">' + menus[i].children[j].children[k].children[l].title + '</a></div>';
+                                                    '<a href="' ;
+                                            if(menus[i].children[j].children[k].children[l].href){
+                                                html_context +=menus[i].children[j].children[k].children[l].href+'" style="cursor:pointer"> ';
+                                            }else{
+                                                html_context +='#">';
+                                            }
+                                            html_context += menus[i].children[j].children[k].children[l].title + '</a></div>';
                                             if (menus[i].children[j].children[k].children[l].children) {
                                                 for (var m = 0; m < menus[i].children[j].children[k].children[l].children.length; m++) {
                                                     html_context += '<li class="menu-show-4">' +
-                                                            '<a href="#">' + menus[i].children[j].children[k].children[l].children[m].title + '</a></li>';
+                                                            '<a href="' ;
+                                                            if(menus[i].children[j].children[k].children[l].children[m].href){
+                                                                html_context +=menus[i].children[j].children[k].children[l].children[m].href+'" style="cursor:pointer"> ';
+                                                            }else{
+                                                                html_context +='#">';
+                                                            }
+                                                    html_context += menus[i].children[j].children[k].children[l].children[m].title + '</a></li>';
                                                 }
 
                                             }

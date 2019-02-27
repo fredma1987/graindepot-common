@@ -81,8 +81,12 @@ function comm_initInspresult(){
         textField: 'text',
         defaultValue: 1
     });
-    if(g_item.inspresult){
-        $("#inspresult").bootstrapSelect("setValue",g_item.inspresult);
+    try{
+        if(g_item.inspresult){
+            $("#inspresult").bootstrapSelect("setValue",g_item.inspresult);
+        }
+    }catch (e){
+
     }
 }
 function comm_initGrain() {
@@ -92,8 +96,12 @@ function comm_initGrain() {
         valueField: 'grainid',
         textField: 'grainname'
     });
-    if(g_item.grainid){
-        $("#grainid").bootstrapSelect("setValue",g_item.grainid);
+    try{
+        if(g_item.grainid){
+            $("#grainid").bootstrapSelect("setValue",g_item.grainid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initGrainattr() {
@@ -103,8 +111,12 @@ function comm_initGrainattr() {
         valueField: 'grainattrid',
         textField: 'grainattrname'
     });
-    if(g_item.grainattrid){
-        $("#grainattrid").bootstrapSelect("setValue",g_item.grainattrid);
+    try{
+        if(g_item.grainattrid){
+            $("#grainattrid").bootstrapSelect("setValue",g_item.grainattrid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initDefGrain() {
@@ -114,8 +126,12 @@ function comm_initDefGrain() {
         valueField: 'grainid',
         textField: 'grainname'
     });
-    if(g_item.defgrainid){
-        $("#defgrainid").bootstrapSelect("setValue",g_item.defgrainid);
+    try{
+        if(g_item.defgrainid){
+            $("#defgrainid").bootstrapSelect("setValue",g_item.defgrainid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initDefGrainattr() {
@@ -125,8 +141,12 @@ function comm_initDefGrainattr() {
         valueField: 'grainattrid',
         textField: 'grainattrname'
     });
-    if(g_item.defgrainattrid){
-        $("#defgrainattrid").bootstrapSelect("setValue",g_item.defgrainattrid);
+    try{
+        if(g_item.defgrainattrid){
+            $("#defgrainattrid").bootstrapSelect("setValue",g_item.defgrainattrid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initGrade(){
@@ -138,8 +158,12 @@ function comm_initGrade(){
         textField: 'text',
         defaultValue: 3
     });
-    if(g_item.grade){
-        $("#grade").bootstrapSelect("setValue",g_item.grade);
+    try{
+        if(g_item.grade){
+            $("#grade").bootstrapSelect("setValue",g_item.grade);
+        }
+    }catch (e){
+
     }
 }
 function comm_initSettlemothod() {
@@ -150,8 +174,12 @@ function comm_initSettlemothod() {
         textField: 'text',
         defaultValue: 1
     });
-    if(g_item.settlemothod){
-        $("#settlemothod").bootstrapSelect("setValue",g_item.settlemothod);
+    try{
+        if(g_item.settlemothod){
+            $("#settlemothod").bootstrapSelect("setValue",g_item.settlemothod);
+        }
+    }catch (e){
+
     }
 }
 function comm_initTrucktype() {
@@ -162,8 +190,12 @@ function comm_initTrucktype() {
         textField: 'text',
         defaultValue: 1
     });
-    if(g_item.trucktype){
-        $("#trucktype").bootstrapSelect("setValue",g_item.trucktype);
+    try{
+        if(g_item.trucktype){
+            $("#trucktype").bootstrapSelect("setValue",g_item.trucktype);
+        }
+    }catch (e){
+
     }
 }
 function comm_initTaxnature() {
@@ -173,8 +205,12 @@ function comm_initTaxnature() {
         valueField: 'value',
         textField: 'text'
     });
-    if(g_item.taxnature){
-        $("#taxnature").bootstrapSelect("setValue",g_item.taxnature);
+    try{
+        if(g_item.taxnature){
+            $("#taxnature").bootstrapSelect("setValue",g_item.taxnature);
+        }
+    }catch (e){
+
     }
 }
 function comm_initProvince(param) {
@@ -194,8 +230,12 @@ function comm_initProvince(param) {
             }
         }
     });
-    if(g_item.provinceid){
-        $("#provinceid").bootstrapSelect("setValue",g_item.provinceid);
+    try{
+        if(g_item.provinceid){
+            $("#provinceid").bootstrapSelect("setValue",g_item.provinceid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initCity(param) {
@@ -214,8 +254,12 @@ function comm_initCity(param) {
             }
         }
     });
-    if(g_item.cityid){
-        $("#cityid").bootstrapSelect("setValue",g_item.cityid);
+    try{
+        if(g_item.cityid){
+            $("#cityid").bootstrapSelect("setValue",g_item.cityid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initCounty(param) {
@@ -234,8 +278,12 @@ function comm_initCounty(param) {
             }
         }
     });
-    if(g_item.countyid){
-        $("#countyid").bootstrapSelect("setValue",g_item.countyid);
+    try{
+        if(g_item.countyid){
+            $("#countyid").bootstrapSelect("setValue",g_item.countyid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initGroup(param) {
@@ -252,8 +300,12 @@ function comm_initGroup(param) {
             }
         }
     });
-    if(g_item.groupid){
-        $("#groupid").bootstrapSelect("setValue",g_item.groupid);
+    try{
+        if(g_item.groupid){
+            $("#groupid").bootstrapSelect("setValue",g_item.groupid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initCompany(param) {
@@ -271,8 +323,12 @@ function comm_initCompany(param) {
             }
         }
     });
-    if(g_item.companyid){
-        $("#companyid").bootstrapSelect("setValue",g_item.companyid);
+    try{
+        if(g_item.companyid){
+            $("#companyid").bootstrapSelect("setValue",g_item.companyid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initGraindepot(param) {
@@ -283,8 +339,12 @@ function comm_initGraindepot(param) {
         textField: 'graindepotname',
         param:param
     });
-    if(g_item.graindepotid){
-        $("#graindepotid").bootstrapSelect("setValue",g_item.graindepotid);
+    try{
+        if(g_item.graindepotid){
+            $("#graindepotid").bootstrapSelect("setValue",g_item.graindepotid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initTrader() {
@@ -294,8 +354,12 @@ function comm_initTrader() {
         valueField: 'traderid',
         textField: 'tradername'
     });
-    if(g_item.traderid){
-        $("#traderid").bootstrapSelect("setValue",g_item.traderid);
+    try{
+        if(g_item.traderid){
+            $("#traderid").bootstrapSelect("setValue",g_item.traderid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initStorage(param) {
@@ -306,8 +370,12 @@ function comm_initStorage(param) {
         textField: 'storagename',
         param:param
     });
-    if(g_item.storageid){
-        $("#storageid").bootstrapSelect("setValue",g_item.storageid);
+    try{
+        if(g_item.storageid){
+            $("#storageid").bootstrapSelect("setValue",g_item.storageid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initStorageType(param) {
@@ -318,8 +386,12 @@ function comm_initStorageType(param) {
         textField: 'storagetypename',
         param:param
     });
-    if(g_item.storagetypeid){
-        $("#storagetypeid").bootstrapSelect("setValue",g_item.storagetypeid);
+    try{
+        if(g_item.storagetypeid){
+            $("#storagetypeid").bootstrapSelect("setValue",g_item.storagetypeid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initStorageStructure(param) {
@@ -330,8 +402,12 @@ function comm_initStorageStructure(param) {
         textField: 'storagestructurename',
         param:param
     });
-    if(g_item.storagestructureid){
-        $("#storagestructureid").bootstrapSelect("setValue",g_item.storagestructureid);
+    try{
+        if(g_item.storagestructureid){
+            $("#storagestructureid").bootstrapSelect("setValue",g_item.storagestructureid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initStoragestatus(param) {
@@ -343,8 +419,12 @@ function comm_initStoragestatus(param) {
         valueField: 'value',
         textField: 'text'
     });
-    if(g_item.storagestatus){
-        $("#storagestatus").bootstrapSelect("setValue",g_item.storagestatus);
+    try{
+        if(g_item.storagestatus){
+            $("#storagestatus").bootstrapSelect("setValue",g_item.storagestatus);
+        }
+    }catch (e){
+
     }
 }
 function comm_initSettle() {
@@ -354,8 +434,12 @@ function comm_initSettle() {
         valueField: 'settleid',
         textField: 'settlename'
     });
-    if(g_item.settleid){
-        $("#settleid").bootstrapSelect("setValue",g_item.settleid);
+    try{
+        if(g_item.settleid){
+            $("#settleid").bootstrapSelect("setValue",g_item.settleid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initContract(param) {
@@ -366,8 +450,12 @@ function comm_initContract(param) {
         textField: 'contractno',
         param: param
     });
-    if(g_item.contractid){
-        $("#contractid").bootstrapSelect("setValue",g_item.contractid);
+    try{
+        if(g_item.contractid){
+            $("#contractid").bootstrapSelect("setValue",g_item.contractid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initAccount(param) {
@@ -378,8 +466,12 @@ function comm_initAccount(param) {
         textField: 'accname',
         param: param
     });
-    if(g_item.accid){
-        $("#accid").bootstrapSelect("setValue",g_item.accid);
+    try{
+        if(g_item.accid){
+            $("#accid").bootstrapSelect("setValue",g_item.accid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initCompanynature(){
@@ -391,8 +483,12 @@ function comm_initCompanynature(){
         valueField: 'value',
         textField: 'text'
     });
-    if(g_item.companynatureid){
-        $("#companynatureid").bootstrapSelect("setValue",g_item.companynatureid);
+    try{
+        if(g_item.companynatureid){
+            $("#companynatureid").bootstrapSelect("setValue",g_item.companynatureid);
+        }
+    }catch (e){
+
     }
 }
 function comm_initCompanytype(){
@@ -404,8 +500,12 @@ function comm_initCompanytype(){
         valueField: 'value',
         textField: 'text'
     });
-    if(g_item.companytypeid){
-        $("#companytypeid").bootstrapSelect("setValue",g_item.companytypeid);
+    try{
+        if(g_item.companytypeid){
+            $("#companytypeid").bootstrapSelect("setValue",g_item.companytypeid);
+        }
+    }catch (e){
+
     }
 }
 //判断是否为数字
