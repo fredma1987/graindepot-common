@@ -15442,6 +15442,15 @@ body::-webkit-scrollbar-track {/*滚动条里面轨道*/
 .myPaging .dataTables_paginate {
     float: left!important;
 }
+/*定义table分页按钮在中间*/
+.myTableLength  {
+    float: left!important;
+    padding-top: 7.5px;
+    margin-left: -55px;
+}
+.myTableLength label {
+    font-size: 14px;
+}
 /*定义table间距*/
 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
     padding: 6px;

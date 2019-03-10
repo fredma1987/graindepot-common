@@ -5,9 +5,9 @@ public class PagerModel<T> {
 
     private List<String> order = new LinkedList();
     private Map<String, Object> where = new HashMap();
-    private int recordsTotal; // 总数
-    private int recordsFiltered; // 总数
-    private List<T> data; // 分页集合列表
+    private int recordsTotal=0; // 总数
+    private int recordsFiltered=0; // 总数
+    private List<T> data=new ArrayList<T>(); // 分页集合列表
     private int start;//从第几行开始显示
     private int length;//每页显示多少行
 

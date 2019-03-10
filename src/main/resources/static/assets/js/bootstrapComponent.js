@@ -84,7 +84,13 @@ $.fn.bootstrapSelect = function (options, param) {
             });
         }
         if (options.defaultValue != null) {
-            target.selectpicker('val', options.defaultValue);
+            if (options.multiple) {
+                var arr = options.defaultValue.split(',');
+                target.selectpicker('val', arr);
+            } else {
+                target.selectpicker('val', options.defaultValue);
+            }
+
         }
         target.selectpicker('refresh');
         options.onLoadSuccess(target, data);
@@ -99,8 +105,20 @@ $.fn.bootstrapSelect.methods = {
         val = val ? val : undefined;
         return val;
     },
+    getText: function (jq) {
+        var text = $(jq.selector + "  option:selected").text();
+        text = text ? text : undefined;
+        return text;
+    },
     setValue: function (jq, param) {
-        jq.selectpicker('val', param);
+        var settingStr = jq.attr("settings");
+        var settings = JSON.parse(settingStr?settingStr:"{}");
+        if (settings.multiple) {
+            var arr = param.split(',');
+            jq.selectpicker('val', arr);
+        } else {
+            jq.selectpicker('val', param);
+        }
         //      jq.trigger("change");
         //jq.selectpicker('refresh');
     },
@@ -111,8 +129,8 @@ $.fn.bootstrapSelect.methods = {
         jq.selectpicker('refresh');
     },
     reload: function (jq) {
-        var settings=jq.attr("settings");
-        if (settings){
+        var settings = jq.attr("settings");
+        if (settings) {
             jq.bootstrapSelect(JSON.parse(settings))
         }
 
@@ -139,6 +157,9 @@ $.fn.bootstrapTable = function (options, param) {
     }
     //将调用时候传过来的参数和default参数合并
     options = $.extend({}, $.fn.bootstrapTable.defaults, options || {});
+    if (options.showLengthMenu){
+        options.doms='rt<"row"<"col-sm-2"i><"col-sm-3 myTableLength"l><"col-sm-7 myPaging"p>>'
+    }
     //加入序号列和选择框
     /*var lastTr = $(target.selector + " tr:last");
      var lastTrHtml = lastTr.html();
@@ -164,7 +185,7 @@ $.fn.bootstrapTable = function (options, param) {
             className: 'center',
             render: function (data) {
                 return '<label>' +
-                    '<input type="checkbox" class="ace"/>' +
+                    '<input type="checkbox" class="ace fixed"/>' +
                     '<span class="lbl"></span>' +
                     '</label>';
             }
@@ -207,7 +228,7 @@ $.fn.bootstrapTable = function (options, param) {
             // var rowWidth = $("#" + this.id + "_wrapper .dataTables_scrollHeadInner").width();
             var rowWidth = $("#" + this.id).width();
             $("#" + this.id + "_wrapper .row").css("width", (rowWidth - 1) + "px")
-
+            $(target.selector + ' th input:checkbox').removeAttr('checked');
         });
 
         this.on('page.dt', function () {
@@ -224,9 +245,9 @@ $.fn.bootstrapTable.methods = {
     getAll: function (jq) {
         var result = [];
         var table = jq.DataTable();
-        if(table.rows(0)[0]!=""){
+        if (table.rows(0)[0] != "") {
             table.rows()[0].forEach(function (curr, index) {
-                    result.push(table.row(index).data());
+                result.push(table.row(index).data());
             });
         }
         return result;
@@ -235,7 +256,7 @@ $.fn.bootstrapTable.methods = {
     getChecked: function (jq) {
         var result = [];
         var table = jq.DataTable();
-        if(table.rows(0)[0]!=""){
+        if (table.rows(0)[0] != "") {
             table.rows()[0].forEach(function (curr, index) {
                 if ($($(table.row(index).node()).find('input:checkbox:first').get(0)).prop('checked')) {
                     result.push(table.row(index).data())
@@ -245,14 +266,19 @@ $.fn.bootstrapTable.methods = {
         return result;
     },
     //刷新数据
-    reload: function (jq) {
+    reload: function (jq, flag) {
         var table = jq.DataTable();
-        table.draw();
+        if (flag) {
+            table.draw('page');
+        } else {
+            table.draw();
+        }
+
     },
     //页面删除，非数据库真删除
     remove: function (jq) {
         var table = jq.DataTable();
-        if(table.rows(0)[0]!=""){
+        if (table.rows(0)[0] != "") {
             table.rows()[0].forEach(function (curr, index) {
                 if ($($(table.row(index).node()).find('input:checkbox:first').get(0)).prop('checked')) {
                     $($(table.row(index).node()).find('input:checkbox:first').get(0)).removeProp('checked');//去除原来选中的属性
@@ -261,7 +287,78 @@ $.fn.bootstrapTable.methods = {
             });
         }
 
-    }
+    },
+    //更新指定行
+    updateRow: function (jq, param) {
+        var index = param.index;
+        var data = param.data;
+        var table = jq.DataTable();
+        var columnSettings = table.settings()[0].aoColumns;
+        $(table.row(index).node()).find("td").each(function (idx, curr) {
+            var target = $(this);
+            var cb = target.find('input:checkbox:first');
+            if (cb && $(cb.get(0)).hasClass("fixed")) {
+            } else {
+                var columnSetting = columnSettings[idx];
+                var render = columnSetting.render;
+                if (render) {
+                    target.html(render(data[columnSetting.data], "display"
+                        , data, {col: idx, row: index, settings: table.settings()[0]}))
+                } else {
+                    target.html(data[columnSetting.data])
+                }
+            }
+
+        });
+        var obj = table.row(index).data();
+        for (var i in obj) {
+            if (data[i] != null) {
+                obj[i] = data[i]
+            }
+        }
+    },
+    //获取被选中数据和索引
+    getCheckedWithIndex: function (jq) {
+        var result = [];
+        var table = jq.DataTable();
+        if (table.rows(0)[0] != "") {
+            table.rows()[0].forEach(function (curr, index) {
+                if ($($(table.row(index).node()).find('input:checkbox:first').get(0)).prop('checked')) {
+                    result.push({
+                        index: index,
+                        data: table.row(index).data()
+                    })
+                }
+            });
+        }
+        return result;
+    },
+    //修改页面数据
+    /*editRow: function (jq, param) {
+        debugger;
+        var index = param;//修改哪一行
+        var table = jq.DataTable();
+        var columnSettings = table.settings()[0].aoColumns;
+        $(table.row(index).node()).find("td").each(function (idx, curr) {
+            var target = $(this);
+            var cb = target.find('input:checkbox:first');
+            if (cb && $(cb.get(0)).hasClass("fixed")) {
+            } else {
+                var columnSetting = columnSettings[idx];
+                var editOption=columnSetting.edit;
+                if (editOption){
+                    if (editOption.type=="bootstrapSelect") {
+                        var html='<select id="authority" name="authority" class="form-control">\n' +
+                            '                        </select>'
+                        target.html(target.bootstrapSelect(editOption.options))
+                    }
+
+
+                }
+            }
+
+        });
+    }*/
 };
 
 $.fn.bootstrapTable.defaults = {
@@ -275,6 +372,8 @@ $.fn.bootstrapTable.defaults = {
     ordering: false,// 禁止排序
     //scrollX: true,
     // scrollY: true,
+    showLengthMenu:false,//关闭显示每页显示几行操作
+    lengthMenu: [15, 30, 45, 60, 75],
     language: {
         url: '/assets/json/Chinese.json'
     }
@@ -296,7 +395,7 @@ $.bootstrapBox = {
                         label: '<i class="icon-ban-circle align-top bigger-125"></i> 取消'
                     }
                 },
-                 callback: function (result) {
+                callback: function (result) {
                     obj.callback(result)
                 }
             });
@@ -329,6 +428,25 @@ $.bootstrapBox = {
             bootbox.alert({
                 message: obj.message,
                 size: 'small'
+            });
+        }
+    },
+    prompt: {
+        init: function (obj) {
+            bootbox.prompt({
+                title: obj.title,
+                inputType: obj.inputType,
+                buttons: {
+                    confirm: {
+                        label: '<i class="icon-check align-top bigger-125"></i> 确认'
+                    },
+                    cancel: {
+                        label: '<i class="icon-ban-circle align-top bigger-125"></i> 取消'
+                    }
+                },
+                callback: function (result) {
+                    obj.callback(result)
+                }
             });
         }
     }

@@ -144,4 +144,32 @@ public class Constant {
             return null;
         }
     }
+
+    //单据状态
+    public enum Sex{
+        dj(1, "男"), qy(2, "女"),jy(3, "未指定");
+        public Integer value;
+        public String text;
+
+        Sex(Integer value, String text) {
+            this.value = value;
+            this.text = text;
+        }
+
+        public static Integer getValue(String text) {
+            for (Sex m : Sex.values()) {
+                if (m.text.equals(text))
+                    return m.value;
+            }
+            return null;
+        }
+
+        public static String getText(Integer value) {
+            for (Sex m : Sex.values()) {
+                if (m.value==value)
+                    return m.text;
+            }
+            return null;
+        }
+    }
 }
