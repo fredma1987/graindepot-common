@@ -28,14 +28,14 @@
 	width: 13%;
 	text-align: right;
 	padding-right: 10px;
-	background: #52bce6;
+	background: #edf3f4;
 	/* border-top: 1px solid white; */
 	border: 1px solid white;
-	color: #043e60;
+	color: #336199;
 }
 .infoCheckBack table tr .infoCheck-content{
 	padding-left: 10px;
 	border: 1px solid white;
-	background: #d2effd;
-	color: #025c92;
+	background: #f3f3f3;
+	/*color: #025c92;*/
 }

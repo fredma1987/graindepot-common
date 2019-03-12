@@ -158,7 +158,7 @@ $.fn.bootstrapTable = function (options, param) {
     //将调用时候传过来的参数和default参数合并
     options = $.extend({}, $.fn.bootstrapTable.defaults, options || {});
     if (options.showLengthMenu){
-        options.doms='rt<"row"<"col-sm-2"i><"col-sm-3 myTableLength"l><"col-sm-7 myPaging"p>>'
+        options.dom='rt<"row"<"col-sm-2"i><"col-sm-3 myTableLength"l><"col-sm-7 myPaging"p>>'
     }
     //加入序号列和选择框
     /*var lastTr = $(target.selector + " tr:last");
