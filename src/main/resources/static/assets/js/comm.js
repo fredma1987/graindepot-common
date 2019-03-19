@@ -2,7 +2,26 @@
 function doJump(url) {
     window.open(url, "_self");
 }
-
+document.onkeydown=function mykeydown()
+{
+    var tagName = event.srcElement.tagName.toUpperCase();
+    var isInput=('INPUT'==tagName||'TEXTAREA'==tagName||'TEXT'==tagName);
+    if(isInput){
+        if (document.activeElement.readOnly == false)
+            return true;
+        else
+            return false;
+    }
+    if (event.keyCode == 8)
+    {
+        if (document.activeElement.type == "text")
+        {
+            if (document.activeElement.readOnly == false)
+                return true;
+        }
+        return false;
+    }
+};
 //日期格式化
 Date.prototype.Format = function (fmt) {
     var o = {
