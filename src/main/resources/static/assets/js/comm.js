@@ -667,3 +667,193 @@ String.prototype.replaceAll=function(f,e){//吧f替换成e
     var reg=new RegExp(f,"g"); //创建正则RegExp对象
     return this.replace(reg,e);
 }
+
+//自动转换数字金额为大小写中文字符,返回大小写中文字符串，最大处理到999兆
+function changeNumberToChinese (money) {
+    var cnNums = ["零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"]; //汉字的数字
+    var cnIntRadice = ["", "拾", "佰", "仟"]; //基本单位
+    var cnIntUnits = ["", "万", "亿", "兆"]; //对应整数部分扩展单位
+    var cnDecUnits = ["角", "分", "毫", "厘"]; //对应小数部分单位
+    var cnInteger = "整"; //整数金额时后面跟的字符
+    var cnIntLast = "元"; //整型完以后的单位
+    var maxNum = 999999999999999.9999; //最大处理的数字
+
+    var IntegerNum; //金额整数部分
+    var DecimalNum; //金额小数部分
+    var ChineseStr = ""; //输出的中文金额字符串
+    var parts; //分离金额后用的数组，预定义
+
+    if (money == "") {
+        return "";
+    }
+
+    money = parseFloat(money);
+    //alert(money);
+    if (money >= maxNum) {
+        $.alert('超出最大处理数字');
+        return "";
+    }
+    if (money == 0) {
+        ChineseStr = cnNums[0] + cnIntLast + cnInteger;
+        //document.getElementById("show").value=ChineseStr;
+        return ChineseStr;
+    }
+    money = money.toString(); //转换为字符串
+    if (money.indexOf(".") == -1) {
+        IntegerNum = money;
+        DecimalNum = '';
+    } else {
+        parts = money.split(".");
+        IntegerNum = parts[0];
+        DecimalNum = parts[1].substr(0, 4);
+    }
+    if (IntegerNum.length < 5) {
+        var o = '';
+        for (var i = 0; i < 5 - IntegerNum.length; i++) {
+            o = '0'.concat(o)
+        }
+        IntegerNum = o.concat(IntegerNum)
+    }
+    if (DecimalNum.length < 2) {
+        var o = '';
+        for (var i = 0; i < 2 - DecimalNum.length; i++) {
+            o = o.concat('0');
+        }
+        DecimalNum = DecimalNum.concat(o)
+    }
+
+
+    //if (parseInt(IntegerNum, 10) > 0) {//获取整型部分转换
+    zeroCount = 0;
+    IntLen = IntegerNum.length;
+    for (i = 0; i < IntLen; i++) {
+        n = IntegerNum.substr(i, 1);
+        p = IntLen - i - 1;
+        q = p / 4;
+        m = p % 4;
+
+        ChineseStr += cnNums[parseInt(n)] + cnIntRadice[m];
+
+        /*if (n == "0") {
+         zeroCount++;
+         } else {
+         if (zeroCount > 0) {
+         ChineseStr += cnNums[0];
+         }
+         zeroCount = 0; //归零
+         ChineseStr += cnNums[parseInt(n)] + cnIntRadice[m];
+         }*/
+        if (m == 0 && zeroCount < 4) {
+            ChineseStr += cnIntUnits[q];
+        }
+    }
+    ChineseStr += cnIntLast;
+    //整型部分处理完毕
+    //}
+    if (DecimalNum != '') {//小数部分
+        decLen = DecimalNum.length;
+        for (i = 0; i < decLen; i++) {
+            n = DecimalNum.substr(i, 1);
+            ChineseStr += cnNums[Number(n)] + cnDecUnits[i];
+            /*if (n != '0') {
+             ChineseStr += cnNums[Number(n)] + cnDecUnits[i];
+             }*/
+        }
+    }
+    if (ChineseStr == '') {
+        ChineseStr += cnNums[0] + cnIntLast + cnInteger;
+    }
+    else if (DecimalNum == '') {
+        ChineseStr += cnInteger;
+    }
+    return ChineseStr;
+
+}
+
+function changeNumberToChineseMap (money) {
+    var c_paymoney=changeNumberToChinese (money);
+    var new_arr;
+    var wan_arr = c_paymoney.split("万");
+    var wan;
+    if (wan_arr.length > 1) {
+        wan = wan_arr[0];
+        new_arr = wan_arr[1];
+    } else {
+        wan = "";
+        new_arr = wan_arr[0];
+    }
+
+    var qian_arr = new_arr.split("仟");
+    var qian;
+    if (qian_arr.length > 1) {
+        qian = qian_arr[0];
+        new_arr = qian_arr[1];
+    } else {
+        qian = "";
+        new_arr = qian_arr[0];
+    }
+
+    var bai_arr = new_arr.split("佰");
+    var bai;
+    if (bai_arr.length > 1) {
+        bai = bai_arr[0];
+        new_arr = bai_arr[1];
+    } else {
+        bai = "";
+        new_arr = bai_arr[0];
+    }
+
+    var shi_arr = new_arr.split("拾");
+    var shi;
+    if (shi_arr.length > 1) {
+        shi = shi_arr[0];
+        new_arr = shi_arr[1];
+    } else {
+        shi = "";
+        new_arr = shi_arr[0];
+    }
+
+    var yuan_arr = new_arr.split("元");
+    var yuan;
+    if (yuan_arr.length > 1) {
+        yuan = yuan_arr[0];
+        new_arr = yuan_arr[1];
+    } else {
+        yuan = "";
+        new_arr = yuan_arr[0];
+    }
+
+    var jiao_arr = new_arr.split("角");
+    var jiao;
+    if (jiao_arr.length > 1) {
+        jiao = jiao_arr[0];
+        new_arr = jiao_arr[1];
+    } else {
+        jiao = "";
+        new_arr = jiao_arr[0];
+    }
+
+    var fen_arr = new_arr.split("分");
+    var fen;
+    if (fen_arr.length > 1) {
+        fen = fen_arr[0];
+        new_arr = fen_arr[1];
+    } else {
+        fen = "";
+        new_arr = fen_arr[0];
+    }
+
+    return {
+        wan:wan,
+        qian:qian,
+        bai:bai,
+        shi:shi,
+        ge:yuan,
+        xiao1:jiao,
+        xiao2:fen
+    }
+
+
+
+
+}

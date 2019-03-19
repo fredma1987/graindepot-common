@@ -15,13 +15,17 @@
 
 <body>
 <!-- 左侧菜单导航 -->
+<div id="test" style="height: 10px">sdsd</div>
 <div class="leftNavbar" th:fragment="leftNavbar" style="z-index: 1500;">
     <!--todo 调整iframe大小及显示-->
-    <iframe frameborder=0 scrolling=no style="background-color:transparent; visibility:hidden; position: absolute; z-index: 9999; width: 100%; height: 100%; top: 0;left:0;"></iframe>
+    <iframe id="target"  frameborder=0 scrolling=no style="background:transparent;
+    visibility:visible; position: absolute; z-index: 200;
+    width: 0px; height: calc(100% - 45px); top: 45px;left:0;"></iframe>
     <div class="leftNavbar-body">
         <a class="navBtn"><i class="icon-reorder bigger-220"></i></a>
         <ul class="menuBtn-1">
         </ul>
+
     </div>
     <script th:inline="javascript">
         var menus;
@@ -108,6 +112,50 @@
                 setCookie('html_context',html_context,7);
             }
             $('.menuBtn-1').html(html_context);
+
+            $(".leftNavbar-body").hover(function () {
+                var mbw1=$(".menuBtn-1").width();
+                $("#target").css("width",mbw1)
+            },function () {
+                $("#target").css("width",0)
+            })
+
+            $(".menu-show-1").hover(function () {
+                var mbw1=$(".menuBtn-1").width();
+                var mbw2=$(".menuBtn-2").width();
+                $("#target").css("width",mbw1+mbw2)
+            },function () {
+                var flag=false;
+                $(".menuBtn-2").each(function (index, curr) {
+                    if ($(curr).css("visibility")=='visible'){
+                        flag=true;
+                    }
+                })
+                if (!flag){
+                    var mbw1=$(".menuBtn-1").width();
+                    $("#target").css("width",mbw1)
+                }
+            })
+
+            $(".menu-show-2").hover(function () {
+                var mbw1=$(".menuBtn-1").width();
+                var mbw2=$(".menuBtn-2").width();
+                var mbw3=$(".menuBtn-3").width();
+                $("#target").css("width",mbw1+mbw2+mbw3+80)
+            },function () {
+                var flag=false;
+                $(".menuBtn-3").each(function (index, curr) {
+                    if ($(curr).css("visibility")=='visible'){
+                        flag=true;
+                    }
+                })
+                if (!flag){
+                    var mbw1=$(".menuBtn-1").width();
+                    var mbw2=$(".menuBtn-2").width();
+                    $("#target").css("width",mbw1+mbw2)
+                }
+            })
+
         });
         //读Cookie
         function getCookie(objName) {//获取指定名称的cookie的值

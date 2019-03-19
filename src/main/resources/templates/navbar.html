@@ -18,6 +18,8 @@
 <body>
 <!--导航栏-->
 <div th:fragment="navbar">
+    <iframe id="targetUp" frameborder=0 scrolling=no
+            style="background-color:transparent; visibility:visible; position: absolute; z-index: 1030; width: 0px; height: 0px; top: 45px;left:0;"></iframe>
     <div>
         <!--导航栏-->
         <div class="navbarDiv">
@@ -33,43 +35,61 @@
                     <div class="myNav">
                         <ul class="nav navbar-nav">
                             <li class=""><a th:href="@{/index}" class="myMenu">首页</a></li>
-                            <li class="dropdown"><a href="#" class="dropdown-toggle myMenu" data-toggle="dropdown">粮食入库 <b class="caret"></b></a>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle myMenu" data-toggle="dropdown">粮食入库
+                                <b class="caret"></b></a>
                                 <ul class="dropdown-menu dropdown-menu-1">
                                     <li class="col-sm-12">
                                         <ul>
                                             <li class="divider"></li>
-                                            <li class="menuLink"><a href="/graindepot-inout/quickinout/in" target="_self">快速入库</a></li>
-                                            <li class="menuLink"><a href="/graindepot-inout/register/toInRegister" target="_self">入库登记</a></li>
-                                            <li class="menuLink"><a href="/graindepot-inout/inspect/toInInspect" target="_self">扦样检验</a></li>
-                                            <li class="menuLink"><a href="/graindepot-inout/weight/toInWeight" target="_blank">入库检斤</a></li>
-                                            <li class="menuLink"><a href="/graindepot-inout/settlement/toInSettlement" target="_self">收购结算</a></li>
-                                            <li class="menuLink"><a href="/graindepot-inout/register/toInSupple" target="_self">入库补单</a></li>
-                                            <li class="menuLink"><a href="/graindepot-inout/onstorage/toInitOnstorage" target="_self">初始库存单</a></li>
+                                            <li class="menuLink"><a href="/graindepot-inout/quickinout/in"
+                                                                    target="_self">快速入库</a></li>
+                                            <li class="menuLink"><a href="/graindepot-inout/register/toInRegister"
+                                                                    target="_self">入库登记</a></li>
+                                            <li class="menuLink"><a href="/graindepot-inout/inspect/toInInspect"
+                                                                    target="_self">扦样检验</a></li>
+                                            <li class="menuLink"><a href="/graindepot-inout/weight/toInWeight"
+                                                                    target="_blank">入库检斤</a></li>
+                                            <li class="menuLink"><a href="/graindepot-inout/settlement/toInSettlement"
+                                                                    target="_self">收购结算</a></li>
+                                            <li class="menuLink"><a href="/graindepot-inout/register/toInSupple"
+                                                                    target="_self">入库补单</a></li>
+                                            <li class="menuLink"><a href="/graindepot-inout/onstorage/toInitOnstorage"
+                                                                    target="_self">初始库存单</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle myMenu" data-toggle="dropdown">粮食出库 <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle myMenu" data-toggle="dropdown">粮食出库 <b
+                                        class="caret"></b></a>
                                 <ul class="dropdown-menu  dropdown-menu-2">
                                     <li class="col-sm-12">
                                         <ul>
                                             <li class="divider"></li>
-                                            <li class="menuLink"><a href="/graindepot-inout/quickinout/out" target="_self">快速出库</a></li>
-                                            <li class="menuLink"><a href="/graindepot-inout/page/prerece" target="_self">预收款</a></li>
-                                            <li class="menuLink"><a href="/graindepot-inout/register/toOutRegister" target="_self">出库登记</a></li>
-                                            <li class="menuLink"><a href="/graindepot-inout/weight/toOutWeight" target="_blank">出库检斤</a></li>
-                                            <li class="menuLink"><a href="/graindepot-inout/settlement/toOutSettlement" target="_self">销售结算</a></li>
-                                            <li class="menuLink"><a href="/graindepot-inout/register/toOutSupple" target="_self">出库补单</a></li>
+                                            <li class="menuLink"><a href="/graindepot-inout/quickinout/out"
+                                                                    target="_self">快速出库</a></li>
+                                            <li class="menuLink"><a href="/graindepot-inout/page/prerece"
+                                                                    target="_self">预收款</a></li>
+                                            <li class="menuLink"><a href="/graindepot-inout/register/toOutRegister"
+                                                                    target="_self">出库登记</a></li>
+                                            <li class="menuLink"><a href="/graindepot-inout/weight/toOutWeight"
+                                                                    target="_blank">出库检斤</a></li>
+                                            <li class="menuLink"><a href="/graindepot-inout/settlement/toOutSettlement"
+                                                                    target="_self">销售结算</a></li>
+                                            <li class="menuLink"><a href="/graindepot-inout/register/toOutSupple"
+                                                                    target="_self">出库补单</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#" class="dropdown-toggle myMenu" data-toggle="dropdown">统计分析 <b class="caret"></b></a>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle myMenu" data-toggle="dropdown">统计分析
+                                <b class="caret"></b></a>
                                 <ul class="dropdown-menu  dropdown-menu-3">
                                     <li class="col-sm-12">
                                         <ul>
                                             <li class="divider"></li>
+                                            <li class="menuLink"><a href="/graindepot-inout/page/dayin" target="_self">入库每日汇总表</a>
+                                            </li>
                                             <li class="menuLink"><a href="#" target="_self">入库作业汇总表</a></li>
                                             <li class="menuLink"><a href="#" target="_self">出库作业汇总表</a></li>
                                             <li class="menuLink"><a href="#" target="_self">实时库存统计表</a></li>
@@ -290,7 +310,7 @@
                         <li class="light-blue right-nav">
                             <a data-toggle="dropdown" href="#" class="dropdown-toggle">
                                 <img class="nav-user-photo" th:src="@{/assets/avatars/user.jpg}"/>
-								<span class="user-info">
+                                <span class="user-info">
 									<small>欢迎光临,</small>
 									<span th:text="${session.currentUser.username}"></span>
 								</span>
@@ -328,17 +348,66 @@
         </div>
 
         <script type="text/javascript">
-            $(document).ready(function(){
-                var dropId=".myNav .nav .dropdown";/*有下拉框的菜单*/
-                var showId=".myNav .nav .open .dropdown-menu";/*下拉框*/
-                $(dropId).mouseover(function(){
+            $(document).ready(function () {
+                var dropId = ".myNav .nav .dropdown";
+                /*有下拉框的菜单*/
+                var showId = ".myNav .nav .open .dropdown-menu";
+                /*下拉框*/
+                $(dropId).mouseover(function () {
                     $(this).addClass('open');
-                    var left=$(this).position().left;
-                    $(this).children(".dropdown-menu").css("left",left-20);
+                    var left = $(this).position().left;
+                    $(this).children(".dropdown-menu").css("left", left - 20);
                 });
-                $(dropId).mouseout(function(){
+                $(dropId).mouseout(function () {
                     $(this).removeClass('open');
                 });
+
+                /*$(".navbarDiv").hover(function () {
+                    var p1 = $(".dropdown-menu-1").position();
+                    var w1 = $(".dropdown-menu-1").width();
+                    var h1 = $(".dropdown-menu-1").height();
+                    console.log(p1)
+                    console.log(w1)
+                    console.log(h1)
+
+                    $("#targetUp").css("height", "calc(100% - 45px)")
+                }, function () {
+                    $("#targetUp").css("height", 0)
+                })*/
+                $(".dropdown").hover(function () {
+                    var p1 = $(".dropdown-menu-1").offset();
+                    var w1 = $(".dropdown-menu-1").width();
+                    var h1 = $(".dropdown-menu-1").height();
+                    var p2 = $(".dropdown-menu-2").offset();
+                    var w2 = $(".dropdown-menu-2").width();
+                    var h2 = $(".dropdown-menu-2").height();
+                    var p3 = $(".dropdown-menu-3").offset();
+                    var w3 = $(".dropdown-menu-3").width();
+                    var h3 = $(".dropdown-menu-3").height();
+                    if (p1.top){
+                        $("#targetUp").css("top", p1.top);
+                        $("#targetUp").css("left", p1.left);
+                        $("#targetUp").css("width", w1);
+                        $("#targetUp").css("height", h1+10);
+                    }
+                    if (p2.top){
+                        $("#targetUp").css("top", p2.top);
+                        $("#targetUp").css("left", p2.left);
+                        $("#targetUp").css("width", w2);
+                        $("#targetUp").css("height", h2+10);
+                    }
+                    if (p3.top){
+                        $("#targetUp").css("top", p3.top);
+                        $("#targetUp").css("left", p3.left);
+                        $("#targetUp").css("width", w3);
+                        $("#targetUp").css("height", h3+10);
+                    }
+
+                    //$("#targetUp").css("height", "calc(100% - 45px)")
+                }, function () {
+                    $("#targetUp").css("height", 0)
+                })
+
             });
         </script>
 

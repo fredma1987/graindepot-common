@@ -172,4 +172,33 @@ public class Constant {
             return null;
         }
     }
+    //套打单据类型 b_lodop lodoptype
+    public enum Lodoptype{
+        a1("1001", "入库登记单"), a2("1002", "入库扦样码单"),a3("1003", "入库检验单")
+        ,a4("1004", "入库检斤单"),a5("1005", "入库结算单"),a6("2001", "出库登记单")
+        ,a7("2002", "出库检斤单"),a8("2003", "出库结算单");
+        public String value;
+        public String text;
+
+        Lodoptype(String value, String text) {
+            this.value = value;
+            this.text = text;
+        }
+
+        public static String getValue(String text) {
+            for (Lodoptype m : Lodoptype.values()) {
+                if (m.text.equals(text))
+                    return m.value;
+            }
+            return null;
+        }
+
+        public static String getText(String value) {
+            for (Lodoptype m : Lodoptype.values()) {
+                if (m.value.equals(value))
+                    return m.text;
+            }
+            return null;
+        }
+    }
 }
