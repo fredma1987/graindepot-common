@@ -3,7 +3,7 @@
 //====判断是否需要 Web打印服务CLodop:===
 //===(不支持插件的浏览器版本需要用它)===
 function needCLodop() {
-    try {
+    /*try {
         var ua = navigator.userAgent;
         if (ua.match(/Windows\sPhone/i))
             return true;
@@ -40,8 +40,8 @@ function needCLodop() {
         return false;
     } catch (err) {
         return true;
-    }
-	
+    }*/
+    return true;
 
 }
 
