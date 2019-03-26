@@ -51,6 +51,8 @@
                                                                     target="_blank">入库检斤</a></li>
                                             <li class="menuLink"><a href="/graindepot-inout/settlement/toInSettlement"
                                                                     target="_self">收购结算</a></li>
+                                            <li class="menuLink"><a href="/graindepot-inout/settlement/toInBatchSettlement"
+                                                                    target="_self">收购统一结算</a></li>
                                             <li class="menuLink"><a href="/graindepot-inout/register/toInSupple"
                                                                     target="_self">入库补单</a></li>
                                             <li class="menuLink"><a href="/graindepot-inout/onstorage/toInitOnstorage"
@@ -92,8 +94,8 @@
                                             </li>
                                             <li class="menuLink"><a href="/graindepot-inout/page/dayrangein" target="_self">入库作业汇总表</a></li>
                                             <li class="menuLink"><a href="/graindepot-inout/page/dayrangeout" target="_self">出库作业汇总表</a></li>
-                                            <li class="menuLink"><a href="#" target="_self">实时库存统计表</a></li>
-                                            <li class="menuLink"><a href="#" target="_self">收支存平衡月报表</a></li>
+                                            <!--<li class="menuLink"><a href="#" target="_self">实时库存统计表</a></li>
+                                            <li class="menuLink"><a href="#" target="_self">收支存平衡月报表</a></li>-->
                                         </ul>
                                     </li>
                                 </ul>
@@ -331,6 +333,12 @@
                                         个人资料
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="javascript:updatePassword();">
+                                        <i class="icon-lock"></i>
+                                        修改密码
+                                    </a>
+                                </li>
                                 <li class="divider"></li>
                                 <li>
                                     <a th:href="@{/logout}">
@@ -409,6 +417,14 @@
                 })
 
             });
+            function updatePassword(){
+                $.bootstrapBox.dialog.init({
+                    title: "修改密码",
+                    url: "/graindepot-user/page/user/toUpdatePassword",
+                    width: '600px',
+                    height: '400px'
+                })
+            }
         </script>
 
     </div>
