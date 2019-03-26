@@ -93,6 +93,16 @@ $.fn.bootstrapSelect = function (options, param) {
 
         }
         target.selectpicker('refresh');
+
+        var val=target.attr("value");
+        if (val!=null){
+            if (options.multiple) {
+                var arr =val.split(',');
+                target.selectpicker('val', arr);
+            } else {
+                target.selectpicker('val', val);
+            }
+        }
         options.onLoadSuccess(target, data);
 
     }
@@ -591,6 +601,78 @@ $.fn.bootstrapTime.defaults = {
     minView: 0,
     maxView: 1,
     forceParse: 0
+};
+
+$.fn.bootstrapYear = function (options, param) {
+    if (typeof options == 'string') {
+        return $.fn.bootstrapYear.methods[options](this, param);
+    }
+    //将调用时候传过来的参数和default参数合并
+    options = $.extend({}, $.fn.bootstrapYear.defaults, options || {});
+
+    this.each(function (index, curr) {
+        $(curr).datetimepicker(options);
+    })
+
+
+};
+
+$.fn.bootstrapYear.methods = {
+    //获取被选中数据
+    getValue: function (jq) {
+        return jq.val();
+    },
+    setValue: function (jq, date) {
+        jq.datetimepicker('setDate', date);
+    }
+};
+$.fn.bootstrapYear.defaults = {
+    format: 'yyyy',
+    weekStart: 1,
+    todayBtn: 1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 4, //这里就设置了默认视图为年视图
+    minView: 4, //设置最小视图为年视图
+    forceParse: 0
+};
+
+//日期选择框 选择日期
+$.fn.bootstrapNumber = function (options, param) {
+    if (typeof options == 'string') {
+        return $.fn.bootstrapNumber.methods[options](this, param);
+    }
+    //将调用时候传过来的参数和default参数合并
+    options = $.extend({}, $.fn.bootstrapNumber.defaults, options || {});
+
+    this.each(function (index, curr) {
+        $(curr).ace_spinner(options);
+        var value=$(curr).attr("value");
+        $(curr).bootstrapNumber("setValue",value)
+    })
+
+};
+
+$.fn.bootstrapNumber.methods = {
+    //获取被选中数据
+    getValue: function (jq) {
+        return jq.val();
+    },
+    setValue: function (jq, date) {
+        jq.val(date);
+    }
+};
+$.fn.bootstrapNumber.defaults = {
+    value:0,
+    min: 0,
+    max: 9999999999999999999999,
+    step: 1,
+    precision:0,//保留几位小数
+    on_sides: true,
+    icon_up: 'icon-plus smaller-75',
+    icon_down: 'icon-minus smaller-75',
+    btn_up_class: 'btn-success',
+    btn_down_class: 'btn-danger'
 };
 
 
