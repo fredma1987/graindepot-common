@@ -83,7 +83,7 @@ $.fn.bootstrapSelect = function (options, param) {
 
             });
         }
-        if (options.defaultValue != null) {
+        if (options.defaultValue != null&&options.defaultValue != "") {
             if (options.multiple) {
                 var arr = options.defaultValue.split(',');
                 target.selectpicker('val', arr);
@@ -93,9 +93,8 @@ $.fn.bootstrapSelect = function (options, param) {
 
         }
         target.selectpicker('refresh');
-
         var val=target.attr("value");
-        if (val!=null){
+        if (val!=""){
             if (options.multiple) {
                 var arr =val.split(',');
                 target.selectpicker('val', arr);
@@ -423,7 +422,7 @@ $.bootstrapBox = {
             });
 
             dialog.init(function () {
-                dialog.find('.bootbox-body').html("<iframe width=100% height=100% frameborder='no'  noresize border=0 marginWidth=10 marginHeight=10 " +
+                dialog.find('.bootbox-body').html("<iframe name='"+obj.iframeName+"' width=100% height=100% frameborder='no'  noresize border=0 marginWidth=10 marginHeight=10 " +
                     "src='" + obj.url + "'></iframe>");
             });
             return dialog;
