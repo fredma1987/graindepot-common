@@ -65,6 +65,12 @@ $.fn.bootstrapSelect = function (options, param) {
                 var option = $('<option></option>');
                 option.attr('value', item[options.valueField]);
                 option.text(item[options.textField]);
+                if (options.attr){
+                    for (var a in options.attr){
+                        option.attr(a, item[options.attr[a]]);
+                    }
+                }
+
                 target.append(option);
             });
         }
@@ -143,6 +149,25 @@ $.fn.bootstrapSelect.methods = {
             jq.bootstrapSelect(JSON.parse(settings))
         }
 
+    },
+    getData:function (jg) {
+        var settings = jq.attr("settings");
+        var options=JSON.parse(settings);
+        if (options.data){
+            return options.data;
+        } else {
+            var result;
+            $.ajax({
+                url: options.url,
+                type: options.type,
+                data: options.param,
+                async: false,
+                success: function (data) {
+                    result=data
+                }
+            });
+            return result;
+        }
     }
 };
 
@@ -782,7 +807,7 @@ $.fn.bootstrapUploadify.methods = {
     }
 };
 $.fn.bootstrapUploadify.defaults = {
-    'swf': '/flash/uploadify.swf',//在gateway服务中获取
+    'swf': '/assets/js/uploadify/uploadify.swf',//在gateway服务中获取
     'uploader': '/zuul/upload/fileUpload',
     buttonText: '<div>选择文件</div>',//
     fileTypeExts: '*.*',
