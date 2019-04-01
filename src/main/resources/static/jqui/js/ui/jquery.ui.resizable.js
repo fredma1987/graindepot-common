@@ -120,33 +120,33 @@ $.widget("ui.resizable", $.ui.mouse, {
 
 			for(var i in this.handles) {
 
-				if(this.handles[i].constructor == String)
-					this.handles[i] = $(this.handles[i], this.element).show();
+                if (this.handles[i].constructor == String)
+                    this.handles[i] = $(this.handles[i], this.element).show();
 
-				//Apply pad to wrapper element, needed to fix axis position (textarea, inputs, scrolls)
-				if (this.elementIsWrapper && this.originalElement[0].nodeName.match(/textarea|input|select|button/i)) {
+                //Apply pad to wrapper element, needed to fix axis position (textarea, inputs, scrolls)
+                if (this.elementIsWrapper && this.originalElement[0].nodeName.match(/textarea|input|select|button/i)) {
 
-					var axis = $(this.handles[i], this.element), padWrapper = 0;
+                    var axis = $(this.handles[i], this.element), padWrapper = 0;
 
-					//Checking the correct pad and border
-					padWrapper = /sw|ne|nw|se|n|s/.test(i) ? axis.outerHeight() : axis.outerWidth();
+                    //Checking the correct pad and border
+                    padWrapper = /sw|ne|nw|se|n|s/.test(i) ? axis.outerHeight() : axis.outerWidth();
 
-					//The padding type i have to apply...
-					var padPos = [ 'padding',
-						/ne|nw|n/.test(i) ? 'Top' :
-						/se|sw|s/.test(i) ? 'Bottom' :
-						/^e$/.test(i) ? 'Right' : 'Left' ].join("");
+                    //The padding type i have to apply...
+                    var padPos = ['padding',
+                        /ne|nw|n/.test(i) ? 'Top' :
+                            /se|sw|s/.test(i) ? 'Bottom' :
+                                /^e$/.test(i) ? 'Right' : 'Left'].join("");
 
-					target.css(padPos, padWrapper);
+                    target.css(padPos, padWrapper);
 
-					this._proportionallyResize();
+                    this._proportionallyResize();
 
-				}
+                }
 
-				//TODO: What's that good for? There's not anything to be executed left
-				if(!$(this.handles[i]).length)
+                //TODO: What's that good for? There's not anything to be executed left
+                if (!$(this.handles[i]).length)
 
-
+				{}
 			}
 		};
 

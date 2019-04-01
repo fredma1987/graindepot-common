@@ -1,0 +1,221 @@
+html,body{
+		width: 100%;
+		height: 100%;
+	}
+	.add_div{
+		width: 200px;
+		height: 100%;
+		position: absolute;
+		z-index: 9000;
+		top: 60px;
+		left: 0;
+		/*display: none;*/
+	}
+	.lkt_tit{
+		height: 40px;
+		position: relative;
+		border-bottom: 1px solid green;
+	}
+	.add_h3{
+		font-size: 16px;
+		color: #333;
+		padding: 5px 20px;
+		line-height: 40px;	
+	}
+	.add_keep{
+		position: absolute;
+		width: 40px;
+		height: 30px;
+		color: #fff;
+		text-align: center;
+		line-height: 30px;
+		background: green;
+		border-radius: 5px;
+		right: 120px;
+		/*top: 5px;*/
+		cursor: pointer;
+	}
+	.del_keep{
+		right: 70px;
+		/*top: 5px;*/
+	}
+	.lkt_add_ul{
+		display: block;
+		width: 100%;
+		height: auto;
+		overflow: hidden;
+	}
+	.lkt_addlist{
+		float:left;
+		width: 45%;
+		height: 40px;
+		padding: 0 2%;
+	}
+	.add_btn{
+		display: block;
+		width: 40px;
+		height: 30px;
+		text-align: center;
+		line-height: 30px;
+		border-radius: 5px;
+		cursor: pointer;
+		background: #CC3333;
+		color: #fff;
+		margin: 10px 0 0 20px;
+		float: left;
+	}
+	.add_chart{
+		position: relative;
+		width: 15%;
+		margin: 10px;
+		height: 20px;
+		float: left;
+	}
+	
+	.add_chart1{
+		position: relative;
+		width: 30%;
+		margin: 10px;
+		height: 20px;
+		float: right;
+	}
+	.lkt_size{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 40px;
+		height: 20px;
+		border: 5px solid rgba(0,0,0,0.3);
+	}
+	.lkt_round{
+		border-radius: 50%;
+		width: 20px;
+		height: 20px;
+		overflow: hidden;
+	}
+	.lkt_move{
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.3);
+	}
+	
+	.ratings_bars{
+		position: relative;
+		width: 200px;
+		margin: 10px 0;
+		height: 60px;
+		float: right;
+	}
+	.title0{
+		background: #fff none repeat scroll 0 0;
+	    border: 1px solid #bfbebe;
+	    color: #a0a0a0;
+	    float: left;
+	    font-family: Georgia,"Times New Roman",Times,serif;
+	    font-size: 14px;
+	    height: 25px;
+	    line-height: 25px;
+	    margin-right: 10px;
+	    text-align: center;
+	    width: 25px;
+	}
+
+	.scale{
+		background: rgba(0, 0, 0, 0) url("../images/progress02.png") no-repeat scroll 0 0;
+	   	background-size: 180px 25px; 
+	    height: 13px;
+	    margin: 7px 10px;
+	    position: relative;
+	    width: 180px;
+	}
+	.scale div{
+		background: rgba(0, 0, 0, 0) url("../images/progress02.png") no-repeat scroll 0 -14px;
+	    bottom: 0;
+	    height: 13px;
+	    left: 0;
+	    position: absolute;
+	    width: 0;
+	}
+	.btn0{
+		background: rgba(0, 0, 0, 0) url("../images/j.png") no-repeat scroll 0 0;
+	   
+	    height: 26px;
+	    width: 10px;
+	    left: -2px;
+	    position: absolute;
+	    top: -7px;
+	    
+	}
+	.btn0_hover{
+		cursor: pointer;
+	}
+	.bars_nub{
+		position: relative;
+		width: 100%;
+		font-family: Georgia,"Times New Roman",Times,serif;
+		color: #a0a0a0;
+	    font-size: 18px;
+	    line-height: 25px;
+	}
+	.bars_0{
+		position: absolute;
+		left: 0;
+		top: 0;
+	    
+	}
+	.bars_5{
+		position: absolute;
+		left: 50%;
+		top: 0;
+		margin-left: -5.5px;
+	}
+	.bars_10{
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.lkt_right{
+		width: 80%;
+		height: 100%;
+		float: right;
+	}
+	.add_move{
+		cursor: move;
+	}
+	.add_size_t{
+		cursor: n-resize;
+	}
+	.add_size_d{
+		cursor: s-resize;
+	}
+	.add_size_l{
+		cursor: w-resize;
+	}
+	.add_size_r{
+		cursor: e-resize;
+	}
+	.add_size_lt{
+		cursor: nw-resize;
+	}
+	.add_size_rt{
+		cursor: ne-resize;
+	}
+	.add_size_ld{
+		cursor: sw-resize;
+	}
+	.add_size_rd{
+		cursor: se-resize;
+	}
+	.lkt_main{
+		position: relative;
+		width: 800px;
+		height: 500px;
+		margin: 100px auto;
+		background: url(../images/kuqu.jpg) 0 0 no-repeat;
+		background-size:100% 100%; 
+		border: 1px solid #000;
+		box-shadow: 0 0 5px rgba(0,0,0,0.7);
+		overflow: hidden;
+	}
+
+	

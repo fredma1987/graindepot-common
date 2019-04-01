@@ -27,7 +27,7 @@
                 <div class="container-fluid pull-left">
                     <div class="navbar-brand">
                         <!--<img th:src="@{/assets/images/gallery/logo.png}"/>-->
-                        <small>
+                        <small style="color:#9acdfa;">
                             <i class="icon-leaf"></i>
                             智能粮库云平台
                         </small>
@@ -94,8 +94,8 @@
                                             </li>
                                             <li class="menuLink"><a href="/graindepot-inout/page/dayrangein" target="_self">入库作业汇总表</a></li>
                                             <li class="menuLink"><a href="/graindepot-inout/page/dayrangeout" target="_self">出库作业汇总表</a></li>
-                                            <!--<li class="menuLink"><a href="#" target="_self">实时库存统计表</a></li>
-                                            <li class="menuLink"><a href="#" target="_self">收支存平衡月报表</a></li>-->
+                                            <li class="menuLink"><a href="/graindepot-inout/page/currentOnstorage" target="_self">实时库存统计表</a></li>
+                                            <!--<li class="menuLink"><a href="#" target="_self">收支存平衡月报表</a></li>-->
                                         </ul>
                                     </li>
                                 </ul>
@@ -115,7 +115,7 @@
 
                 <div class="navbar-header pull-right" role="navigation">
                     <ul class="nav ace-nav">
-                        <li class="grey right-nav">
+                       <!-- <li class="grey right-nav">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <i class="icon-tasks"></i>
                                 <span class="badge badge-grey">0</span>
@@ -126,7 +126,7 @@
                                     <i class="icon-ok"></i>
                                     还有0个任务待完成
                                 </li>
-                                <!--<li>
+                                &lt;!&ndash;<li>
                                     <a href="#">
                                         <div class="clearfix">
                                             <span class="pull-left">软件更新</span>
@@ -179,7 +179,7 @@
                                         查看任务详情
                                         <i class="icon-arrow-right"></i>
                                     </a>
-                                </li>-->
+                                </li>&ndash;&gt;
                             </ul>
                         </li>
 
@@ -193,7 +193,7 @@
                                     <i class="icon-warning-sign"></i>
                                     0条通知
                                 </li>
-                                <!--<li>
+                                &lt;!&ndash;<li>
                                     <a href="#">
                                         <div class="clearfix">
 											<span class="pull-left">
@@ -237,7 +237,7 @@
                                         查看所有通知
                                         <i class="icon-arrow-right"></i>
                                     </a>
-                                </li>-->
+                                </li>&ndash;&gt;
                             </ul>
                         </li>
 
@@ -252,7 +252,7 @@
                                     <i class="icon-envelope-alt"></i>
                                     0条消息
                                 </li>
-                                <!--<li>
+                                &lt;!&ndash;<li>
                                     <a href="#">
                                         <img th:src="@{/assets/avatars/avatar.png}" class="msg-photo" alt="Alex's Avatar"/>
 										<span class="msg-body">
@@ -305,15 +305,15 @@
                                         查看所有消息
                                         <i class="icon-arrow-right"></i>
                                     </a>
-                                </li>-->
+                                </li>&ndash;&gt;
                             </ul>
-                        </li>
+                        </li>-->
 
                         <li class="light-blue right-nav">
                             <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                                <img class="nav-user-photo" th:src="@{/assets/avatars/user.jpg}"/>
+                                <img class="nav-user-photo" th:src="@{/assets/avatars/man.png}"/>
                                 <span class="user-info">
-									<small>欢迎光临,</small>
+									<small>欢迎登录</small>
 									<span th:text="${session.currentUser.username}"></span>
 								</span>
 
