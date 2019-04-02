@@ -684,6 +684,7 @@ $.fn.bootstrapNumber.methods = {
     },
     setValue: function (jq, date) {
         jq.val(date);
+        jq.change();
     }
 };
 $.fn.bootstrapNumber.defaults = {
