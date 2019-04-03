@@ -116,6 +116,35 @@ public class Constant {
             return null;
         }
     }
+
+    //审核
+    public enum Release{
+        dsp(0, "待发布"), sptg(1, "发布"),spbtg(-1, "不发布");
+        public Integer value;
+        public String text;
+
+        Release(Integer value, String text) {
+            this.value = value;
+            this.text = text;
+        }
+
+        public static Integer getValue(String text) {
+            for (Release m : Release.values()) {
+                if (m.text.equals(text))
+                    return m.value;
+            }
+            return null;
+        }
+
+        public static String getText(Integer value) {
+            for (Release m : Release.values()) {
+                if (m.value==value)
+                    return m.text;
+            }
+            return null;
+        }
+    }
+
     //单据状态
     public enum Billstage{
         dj(1, "登记"), qy(2, "扦样"),jy(3, "检验"),cmz(4, "称毛重")
@@ -196,6 +225,34 @@ public class Constant {
         public static String getText(String value) {
             for (Lodoptype m : Lodoptype.values()) {
                 if (m.value.equals(value))
+                    return m.text;
+            }
+            return null;
+        }
+    }
+
+    //运输类型
+    public enum Trucktype{
+        cl(1, "车辆"), cb(2, "船舶"),hc(3, "火车"),qt(99, "其他");
+        public Integer value;
+        public String text;
+
+        Trucktype(Integer value, String text) {
+            this.value = value;
+            this.text = text;
+        }
+
+        public static Integer getValue(String text) {
+            for (Trucktype m : Trucktype.values()) {
+                if (m.text.equals(text))
+                    return m.value;
+            }
+            return null;
+        }
+
+        public static String getText(Integer value) {
+            for (Trucktype m : Trucktype.values()) {
+                if (m.value==value)
                     return m.text;
             }
             return null;

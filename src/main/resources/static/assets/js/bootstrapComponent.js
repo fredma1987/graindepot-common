@@ -470,6 +470,7 @@ $.bootstrapBox = {
             bootbox.prompt({
                 title: obj.title,
                 inputType: obj.inputType,
+                inputOptions:obj.inputOptions,
                 buttons: {
                     confirm: {
                         label: '<i class="icon-check align-top bigger-125"></i> 确认'
