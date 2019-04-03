@@ -15458,3 +15458,44 @@ body::-webkit-scrollbar-track {/*滚动条里面轨道*/
 input{
     color: black;
 }
+/*上传a标签超出不显示*/
+.afileUpload{
+    cursor:pointer;
+    display:block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* 头像预览-放大-删除 */
+/*
+#headPreview{
+
+}
+#headPreview, #headPreview #headBack{
+    width: 80px;
+    height: 80px;
+}
+#headPreview #headPic{
+    width: 80px;
+    height: 80px;
+    border: 2px solid #ffefcc;
+    display: table;
+    background: white;
+}
+#headPreview #headPic img{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+#headPreview #headEditBtn{
+    margin-top: 4px;
+    background: #fcebab;
+    padding: 4px 0px;
+}
+#headPreview #headEnlarge{
+    margin: 0px 20px 0px 10px;
+}
+#headPreview #headEditBtn img{
+    width: 20px;
+    height: 20px;
+}*/

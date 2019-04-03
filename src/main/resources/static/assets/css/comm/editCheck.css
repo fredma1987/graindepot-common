@@ -1,0 +1,41 @@
+/* 信息查看页面 */
+.editCheckDiv{
+	width: 100vw;
+	min-width: 1000px;
+	font-size: 16px;
+	background: white;
+	border: solid;
+}
+.editCheckBack{
+	/*box-shadow: 0px 5px 15px skyblue;*/
+}
+.editCheckBack table{
+	width: 100%;
+	table-layout: fixed;
+	border: 0;
+	margin-bottom: -1px;
+}
+.infoCheck-three td, .editCheckTable td{
+	padding: 3px 10px;
+	/*overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;*/
+}
+.infoCheck-one td{
+	padding: 10px 0;
+}
+.editCheckBack table tr .editCheck{
+	width: 13%;
+	text-align: center;
+	padding-right: 10px;
+	background: #edf3f4;
+	/* border-top: 1px solid white; */
+	border: 1px solid black;
+	color: #336199;
+}
+.editCheckBack table tr .infoCheck-content{
+	padding-left: 10px;
+	border: 1px solid white;
+	background: #f3f3f3;
+	/*color: #025c92;*/
+}

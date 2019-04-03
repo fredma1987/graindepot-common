@@ -65,8 +65,8 @@ $.fn.bootstrapSelect = function (options, param) {
                 var option = $('<option></option>');
                 option.attr('value', item[options.valueField]);
                 option.text(item[options.textField]);
-                if (options.attr){
-                    for (var a in options.attr){
+                if (options.attr) {
+                    for (var a in options.attr) {
                         option.attr(a, item[options.attr[a]]);
                     }
                 }
@@ -89,7 +89,7 @@ $.fn.bootstrapSelect = function (options, param) {
 
             });
         }
-        if (options.defaultValue != null&&options.defaultValue != "") {
+        if (options.defaultValue != null && options.defaultValue != "") {
             if (options.multiple) {
                 var arr = options.defaultValue.split(',');
                 target.selectpicker('val', arr);
@@ -99,10 +99,10 @@ $.fn.bootstrapSelect = function (options, param) {
 
         }
         target.selectpicker('refresh');
-        var val=target.attr("value");
-        if (val!=""){
+        var val = target.attr("value");
+        if (val != "") {
             if (options.multiple) {
-                var arr =val.split(',');
+                var arr = val.split(',');
                 target.selectpicker('val', arr);
             } else {
                 target.selectpicker('val', val);
@@ -127,7 +127,7 @@ $.fn.bootstrapSelect.methods = {
     },
     setValue: function (jq, param) {
         var settingStr = jq.attr("settings");
-        var settings = JSON.parse(settingStr?settingStr:"{}");
+        var settings = JSON.parse(settingStr ? settingStr : "{}");
         if (settings.multiple) {
             var arr = param.split(',');
             jq.selectpicker('val', arr);
@@ -150,10 +150,10 @@ $.fn.bootstrapSelect.methods = {
         }
 
     },
-    getData:function (jg) {
+    getData: function (jg) {
         var settings = jq.attr("settings");
-        var options=JSON.parse(settings);
-        if (options.data){
+        var options = JSON.parse(settings);
+        if (options.data) {
             return options.data;
         } else {
             var result;
@@ -163,7 +163,7 @@ $.fn.bootstrapSelect.methods = {
                 data: options.param,
                 async: false,
                 success: function (data) {
-                    result=data
+                    result = data
                 }
             });
             return result;
@@ -191,8 +191,8 @@ $.fn.bootstrapTable = function (options, param) {
     }
     //将调用时候传过来的参数和default参数合并
     options = $.extend({}, $.fn.bootstrapTable.defaults, options || {});
-    if (options.showLengthMenu){
-        options.dom='rt<"row"<"col-sm-2"i><"col-sm-3 myTableLength"l><"col-sm-7 myPaging"p>>'
+    if (options.showLengthMenu) {
+        options.dom = 'rt<"row"<"col-sm-2"i><"col-sm-3 myTableLength"l><"col-sm-7 myPaging"p>>'
     }
     //加入序号列和选择框
     /*var lastTr = $(target.selector + " tr:last");
@@ -406,7 +406,7 @@ $.fn.bootstrapTable.defaults = {
     ordering: false,// 禁止排序
     //scrollX: true,
     // scrollY: true,
-    showLengthMenu:false,//关闭显示每页显示几行操作
+    showLengthMenu: false,//关闭显示每页显示几行操作
     lengthMenu: [15, 30, 45, 60, 75],
     language: {
         url: '/assets/json/Chinese.json'
@@ -447,7 +447,7 @@ $.bootstrapBox = {
             });
 
             dialog.init(function () {
-                dialog.find('.bootbox-body').html("<iframe name='"+obj.iframeName+"' width=100% height=100% frameborder='no'  noresize border=0 marginWidth=10 marginHeight=10 " +
+                dialog.find('.bootbox-body').html("<iframe name='" + obj.iframeName + "' width=100% height=100% frameborder='no'  noresize border=0 marginWidth=10 marginHeight=10 " +
                     "src='" + obj.url + "'></iframe>");
             });
             return dialog;
@@ -671,8 +671,8 @@ $.fn.bootstrapNumber = function (options, param) {
 
     this.each(function (index, curr) {
         $(curr).ace_spinner(options);
-        var value=$(curr).attr("value");
-        $(curr).bootstrapNumber("setValue",value)
+        var value = $(curr).attr("value");
+        $(curr).bootstrapNumber("setValue", value)
     })
 
 };
@@ -688,11 +688,11 @@ $.fn.bootstrapNumber.methods = {
     }
 };
 $.fn.bootstrapNumber.defaults = {
-    value:0,
+    value: 0,
     min: 0,
     max: 9999999999999999999999,
     step: 1,
-    precision:0,//保留几位小数
+    precision: 0,//保留几位小数
     on_sides: true,
     icon_up: 'icon-plus smaller-75',
     icon_down: 'icon-minus smaller-75',
@@ -703,16 +703,26 @@ $.fn.bootstrapNumber.defaults = {
 
 //=============================uploadify=========================================
 $.fn.bootstrapUploadify = function (options, param) {
+    //将调用时候传过来的参数和default参数合并
+    if (typeof options == 'string') {
+        return $.fn.bootstrapUploadify.methods[options](this, param);
+    }
+    options = $.extend({}, $.fn.bootstrapUploadify.defaults, options || {});
+    options.trueUploadLimit = options.uploadLimit;
     var target = this;
+    //记下当前input的value
+    var fileStr = target.attr("value");
+
     //初始化
     if (options.buttonText) {
         options.buttonText = "<div>" + options.buttonText + "</div>"
     }
+    var _doc = ["*.doc", "*.docx", "*.xls", "*.xlsx", "*.ppt", "*.pptx", "*.txt", "*.pdf"],
+        _video = ["*.mp4", "*.flv", "*.wmv", "*.rmvb", '*.avi'],
+        _scorm = ["*.zip"],
+        _img = ["*.png", "*.bmp", "*.jpeg", "*.jpg", "*.gif", "*.psd", "*.tiff", "*.tga", "*.eps"];
+
     if (options.fileType) {
-        var _doc = ["*.doc", "*.docx", "*.xls", "*.xlsx", "*.ppt", "*.pptx", "*.txt", "*.pdf"],
-            _video = ["*.mp4", "*.flv", "*.wmv", "*.rmvb", '*.avi'],
-            _scorm = ["*.zip"],
-            _img = ["*.png", "*.bmp", "*.jpeg", "*.jpg", "*.gif", "*.psd", "*.tiff", "*.tga", "*.eps"];
         switch (options.fileType) {
             case "img":
                 options.fileTypeExts = _img.join(";");
@@ -730,9 +740,50 @@ $.fn.bootstrapUploadify = function (options, param) {
                 options.fileTypeExts = "*.*";
                 break;
         }
+    }
+
+    function isImage(type) {
+        var _imgType = [".png", ".bmp", ".jpeg", ".jpg", ".gif", ".psd", ".tiff", ".tga", ".eps"]
+        if ($.inArray(type, _imgType) > -1) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
+
+    function getIcon(type) {
+        var _wordType = [".doc", ".docx"];
+        var _excelType = [".xls", ".xlsx"];
+        var _pptType = [".ppt", ".pptx"];
+        var _txtType = [".txt"];
+        var _pdfType = [".pdf"];
+        var _videoType = [".mp4", ".flv", ".wmv", ".rmvb", '.avi'];
+        var _zipType = ["*.zip"];
+        if ($.inArray(type, _wordType) > -1) {
+            return "/assets/images/uploadify/word.png";
+        } else if ($.inArray(type, _excelType) > -1) {
+            return "/assets/images/uploadify/excel.png";
+        } else if ($.inArray(type, _pptType) > -1) {
+            return "/assets/images/uploadify/ppt.png";
+        } else if ($.inArray(type, _txtType) > -1) {
+            return "/assets/images/uploadify/txt.png";
+        } else if ($.inArray(type, _pdfType) > -1) {
+            return "/assets/images/uploadify/pdf.png";
+        } else if ($.inArray(type, _videoType) > -1) {
+            return "/assets/images/uploadify/video.png";
+        } else if ($.inArray(type, _zipType) > -1) {
+            return "/assets/images/uploadify/zip.png";
+        } else {
+            return "/assets/images/uploadify/default.png";
+        }
+
+
+    }
+
+
     options.onUploadSuccess = function (file, data, response) {
+        var that = this;
         console.log(file);
         console.log(data);
         console.log(response);
@@ -745,71 +796,129 @@ $.fn.bootstrapUploadify = function (options, param) {
         var dataList = [];
         dataList.push(data);
         $.each(dataList, function (i, item) {
-            var src = "/upload/cloudgrain/upload/" + item;
+            var src = options.showUrlPrefix + item;
             var style = "width:80px;height:80px;";
-            if (options.fileType == "img") {
+            if (isImage(file.type)) {
                 if (options.uploadLimit == 1) {
                     $("#" + options.showId).html(
-                        '<img class=\"showImg ' + file.id + ' ' + options.showId + "_show" + '\" src=\"' + src + '\"  filename=\"' + item + '\" style=\"' + style + '\">')
-                } else {
-                    $("#" + options.showId).append('<img class=\"showImg ' + file.id + ' ' + options.showId + "_show" + '\" src=\"' + src + '\"  filename=\"' + item + '\" style=\"' + style + '\">')
-                }
-            } else {
-                if (options.uploadLimit == 1) {
-                    $("." + options.showId).html(
-                        '<a target="_blank" class=\"showDoc ' + file.id + ' ' + options.showId + "_show" + '\" href=\"' + src + '\"  filename=\"' + item + '\" style=\"' + style + '\">'
-                        + item + '</a>'
+                        '<div style="width: 33%;float: left" id="uploadify' + file.id + '">' +
+                        '<img class=\"showImg ' + file.id + ' ' + "uploadify_show" + '\" src=\"' + src + '\"  filename=\"' + item + '\" style=\"' + style + '\">' +
+                        '<a class="red" id="' + file.id + '"><i class="icon-trash bigger-130"></i></a>' +
+                        '<a class="afileUpload">' + file.name + '</a>' +
+                        '</div>'
                     )
                 } else {
-                    $("." + options.showId).append(
-                        '<a target="_blank" class=\"showDoc ' + file.id + ' ' + options.showId + "_show" + '\" href=\"' + src + '\"  filename=\"' + item + '\" style=\"' + style + '\">'
-                        + item + '</a>'
+                    $("#" + options.showId).append(
+                        '<div style="width: 33%;float: left" id="uploadify' + file.id + '">' +
+                        '<img class=\"showImg ' + file.id + ' ' + "uploadify_show" + '\" src=\"' + src + '\"  filename=\"' + item + '\" style=\"' + style + '\">' +
+                        '<a class="red" id="' + file.id + '"><i class="icon-trash bigger-130"></i></a>' +
+                        '<a class="afileUpload">' + file.name + '</a>' +
+                        '</div>'
+                    )
+                }
+            } else {
+                var icon = getIcon(file.type);
+
+                if (options.uploadLimit == 1) {
+                    $("#" + options.showId).html(
+                        '<div style="width: 33%;float: left" id="uploadify' + file.id + '">' +
+                        '<img style="width:80px;height:80px;" src="' + icon + '">' +
+                        '<a class="red" id="' + file.id + '"><i class="icon-trash bigger-130"></i></a>' +
+                        '<a target="_blank" class=\"afileUpload showDoc ' + file.id + ' ' + "uploadify_show" + '\" href=\"' + src + '\"  filename=\"' + item + '\">' +
+                        file.name + '</a>' +
+                        '</div>'
+                    )
+                } else {
+                    $("#" + options.showId).append(
+                        $("#" + options.showId).append(
+                            '<div style="width: 33%;float: left" id="uploadify' + file.id + '">' +
+                            '<img style="width:80px;height:80px;" src="' + icon + '">' +
+                            '<a class="red" id="' + file.id + '"><i class="icon-trash bigger-130"></i></a>' +
+                            '<a target="_blank" class=\"afileUpload showDoc ' + file.id + ' ' + "uploadify_show" + '\" href=\"' + src + '\"  filename=\"' + item  + '\">' +
+                            file.name + '</a>' +
+                            '</div>'
+                        )
                     )
                 }
             }
+            $(document).on('click', "#" + file.id, function () {
+                //在这此处处理...
+                $("#uploadify" + file.id).remove()
+                //通过uploadify的settings方式重置上传限制数量
+                target.uploadify('settings', 'uploadLimit', ++that.settings.uploadLimit);
+                //防止手快多点几次x，把x隐藏掉
+                //$(this).hide();
+            });
 
 
         });
     };
+    var settings;
+    options.onInit=function(e){
+        settings=e.settings;
+        var that = settings;
+        $(target.selector).attr("showId", options.showId);
+        $(target.selector).attr("trueUploadLimit", options.uploadLimit);
+        //画出默认列表
+        if (fileStr) {
+            var fileArray = fileStr.split(",")
+            fileArray.forEach(function (curr, index) {
+                var src = options.showUrlPrefix + curr;
+                var style = "width:80px;height:80px;";
+                var file = {id: index,name:curr,showname:curr.split("|")[0],type:"." + curr.split(".")[1]}
+                var item=curr;
+                if (isImage(file.type) ){
+                    $("#" + options.showId).append(
+                        '<div style="width: 33%;float: left" id="uploadify' + file.id + '">' +
+                        '<img class=\"showImg ' + file.id + ' ' + "uploadify_show" + '\" src=\"' + src + '\"  filename=\"' + item + '\" style=\"' + style + '\">' +
+                        '<a class="red" id="' + file.id + '"><i class="icon-trash bigger-130"></i></a>' +
+                        '<a class="afileUpload">' + file.showname+file.type + '</a>' +
+                        '</div>'
+                    )
+                }else {
+                    var icon = getIcon(file.type);
+                    $("#" + options.showId).append(
+                        '<div style="width: 33%;float: left" id="uploadify' + file.id + '">' +
+                        '<img style="width:80px;height:80px;" src="' + icon + '">' +
+                        '<a class="red" id="' + file.id + '"><i class="icon-trash bigger-130"></i></a>' +
+                        '<a target="_blank" class=\"afileUpload showDoc ' + file.id + ' ' + "uploadify_show" + '\" href=\"' + src + '\"  filename=\"' + item + '\">' +
+                        file.showname+file.type + '</a>' +
+                        '</div>'
+                    )
+                }
+                $(document).on('click', "#" + file.id, function () {
+                    //在这此处处理...
+                    $("#uploadify" + file.id).remove()
+                });
+            })
+    }
     //上传控件加载完成之后触发
-    options.onInit = function () {
+    options.onSWFReady = function (e) {
+
+        }
 
     };
-    //将调用时候传过来的参数和default参数合并
-    options = $.extend({}, $.fn.bootstrapUploadify.defaults, options || {});
-    if (typeof options == 'string') {
-        return $.fn.bootstrapUploadify.methods[options](this, options);
-    }
     target.uploadify(options);
-
 
 };
 
 $.fn.bootstrapUploadify.methods = {
     getValue: function (jq, options) {
         var filenames = [];
-        $("." + options.showId + "_show").each(function (index, element) {
+        var showId = jq.attr("showid")
+        $("#" + showId + " .uploadify_show").each(function () {
             var filename = $(this).attr("filename");
             if (filename) {
                 filenames.push(filename)
             }
-        });
-        if (options.uploadLimit != 1) {
-            return filenames;
-        } else {
-            if (filenames.length > 0) {
-                return filenames[0];
-            } else {
-                return null;
-            }
-
-        }
-
+        })
+        return filenames;
     }
 };
 $.fn.bootstrapUploadify.defaults = {
     'swf': '/assets/js/uploadify/uploadify.swf',//在gateway服务中获取
     'uploader': '/zuul/upload/fileUpload',
+    'showUrlPrefix':"/upload/graindepot/upload/",
     buttonText: '<div>选择文件</div>',//
     fileTypeExts: '*.*',
     multi: false,
@@ -834,7 +943,7 @@ $.fn.bootstrapUploadify.defaults = {
         switch (errorCode) {
             case SWFUpload.QUEUE_ERROR.QUEUE_LIMIT_EXCEEDED:
                 //this.queueData.errorMsg = "每次最多上传 " + this.settings.queueSizeLimit + "个文件";
-                msgText += "每次最多上传 " + this.settings.uploadLimit + "个文件";
+                msgText += "最多上传" + this.settings.trueUploadLimit + "个文件";
                 break;
             case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
                 msgText += "文件大小超过限制( " + this.settings.fileSizeLimit + " )";
@@ -848,7 +957,7 @@ $.fn.bootstrapUploadify.defaults = {
             default:
                 msgText += "错误代码：" + errorCode + "\n" + errorMsg;
         }
-        alert(msgText);
+        parent.$.bootstrapBox.alert.init({message: msgText});
     }
 
 };
